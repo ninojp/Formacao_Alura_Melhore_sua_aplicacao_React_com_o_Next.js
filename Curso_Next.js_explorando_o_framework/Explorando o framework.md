@@ -126,3 +126,44 @@ Uma aplicação web criada com Next.js:
   - O Next.js entrega o conteúdo da página diretamente, enquanto no Create React App ele é gerado após o carregamento. Como resultado o SEO é melhor.
 - create-next-app
   - Essa ferramenta realiza o setup inicial por você, facilitando o início de uma aplicação Next.js.
+
+## Aula 03 - Estilizando o projeto
+
+### Aula 03 - Onde colocar meu CSS? - Vídeo 1
+
+Nesta aula do curso de Next.js, o instrutor aborda a estilização da aplicação. Ele explica a abordagem CSS-in-JS, que consiste em criar o código CSS a partir do JavaScript, trazendo vantagens como evitar conflitos de escopo e a necessidade de pensar em nomes de classe. Além disso, o instrutor menciona o uso de styled components como outra forma de implementar o CSS-in-JS. Ele mostra como criar um componente de título e aplicar estilos a ele utilizando a tag especial do Next.js, chamada styled-jsx. O instrutor também demonstra como utilizar o styled-jsx para definir estilos dinâmicos, permitindo que o componente seja renderizado com diferentes tags HTML. Ele destaca a flexibilidade dessa abordagem e a possibilidade de gerar um código mais consistente, eliminando o chamado "dead code". Por fim, o instrutor menciona que é possível aplicar estilos globais na aplicação, mas que isso será abordado em um próximo vídeo.
+
+### Aula 03 - Como lidar com estilos globais - Vídeo 2
+
+Nesta aula, o instrutor abordou a questão de como lidar com estilos globais em um projeto Next.js. Ele começou criando um componente chamado GlobalStyle que contém a tag `<style>` com a estrutura de template string. Em seguida, ele moveu a propriedade font-family: sans-serif; para a tag body, explicando que ao aplicar essa propriedade ao body, todos os elementos herdarão esse estilo. O instrutor mencionou que, embora isso seja útil para estilos globais, quando se trata de estilos específicos de uma página, é necessário criar um arquivo _app.js na pasta pages do projeto. O '_app.js' atua como um middleware entre as páginas e os componentes, permitindo a aplicação de estilos e configurações gerais. O instrutor mostrou como criar o arquivo _app.js e importar o componente GlobalStyle nele. Ele também mencionou que é possível criar um componente separado para envolver cada página, caso seja necessário. O instrutor destacou a importância de verificar o terminal para identificar erros e problemas durante o desenvolvimento. Ele concluiu mencionando que o próximo vídeo abordará a utilização de componentes para facilitar a criação de estilos.
+
+### Aula 03 - Componentes do layout - Vídeo 3
+
+Para instalar a biblioteca de ícones Font Awesome
+> npm i --save @fortawesome/fontawesome-svg-core
+> npm i --save @fortawesome/free-solid-svg-icons
+> npm i --save @fortawesome/react-fontawesome
+
+O comando abaixo(citado na aula), deu erro
+> yarn add @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome
+
+Nesta aula, o instrutor ensinou como estilizar uma página web, destacando a importância de adicionar estilos comuns a todos os projetos. Ele mostrou como adicionar as fontes do Font Awesome ao projeto e explicou a necessidade de instalar três bibliotecas: o core do Font Awesome, a versão dos ícones sólidos e o componente para trabalhar com o React do Font Awesome. Além disso, o instrutor mencionou a existência de um arquivo chamado "theme.js", que contém definições de cores, fontes e bordas, traduzidas a partir de um arquivo de design, como o Figma. Ele também criou um arquivo chamado "components.js" dentro da pasta "theme" e importou várias funções e componentes que serão utilizados no projeto. O instrutor mostrou como importar o componente de footer na página inicial do projeto, explicando que esse componente é uma caixa preta com um texto dentro, e utilizou propriedades do tema para definir o estilo do footer. Além disso, ele mostrou como aplicar um estilo global ao projeto, corrigindo a margem do body e importando um arquivo de estilo mais completo. Por fim, o instrutor organizou os arquivos em pastas e importou o componente de home na página inicial, destacando que a página inicial já está com o estilo correto, mas que o FAQ ainda precisa ser estilizado. Ele também mencionou outros projetos que seguem a mesma estrutura de definir estilos através de propriedades, como o SkynexUI e o xstyled, e finalizou o trecho dizendo que na próxima aula serão abordados os arquivos estáticos e como lidar com imagens no projeto.
+
+### Aula 03 - Trabalhando com arquivos estáticos - Vídeo 4
+
+Nesta aula, o professor abordou a estrutura de pastas do Next.js, explicando que o arquivo "_app.js" gerencia todos os componentes de página. Ele destacou a separação das páginas na pasta "screens" e a presença de exemplos na documentação do Next.js para uso com diferentes tecnologias, como Sass, Redux e GraphQL.
+
+Além disso, o professor explicou como servir arquivos estáticos no Next.js, mostrando como criar um arquivo "robots.txt" na pasta "public" para controlar o acesso dos robôs de busca. Ele também demonstrou como salvar imagens na pasta "public" e acessá-las através de URLs sem a necessidade de incluir a pasta "public" na URL.
+
+Outro ponto abordado foi a geração de arquivos como o "sitemap.xml" para listar todas as URLs do site, útil para SEO, podendo ser criado manualmente ou seguindo tutoriais disponíveis na internet.
+
+Por fim, o professor anunciou que nas próximas aulas serão abordados recursos mais avançados do Next.js, como o Server Side Render e as funções getStaticProps e getServerSideProps. Este resumo abrange os principais tópicos discutidos na aula, incluindo a estrutura de pastas do Next.js, o uso de arquivos estáticos e a geração de arquivos como o "robots.txt" e o "sitemap.xml".
+
+### Aula 03 - Nesta aula você aprendeu`:`
+
+- Estilização no Next.js
+  - Existem diversas maneiras de estilizar sua aplicação Next.js e você é livre para escolher a que mais lhe agrada.
+- Arquitetura de aplicação
+  - Podemos criar novas pastas para agrupar componentes com propósitos semelhantes.
+- Lidar com arquivos estáticos
+  - Conseguimos acessar os arquivos dentro da pasta public diretamente pela URL da aplicação.
