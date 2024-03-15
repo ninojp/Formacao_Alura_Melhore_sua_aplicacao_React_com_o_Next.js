@@ -4,7 +4,11 @@
 
 [Next.js](https://nextjs.org/)
 
+> yarn create next-app  
 > npx create-next-app@latest
+> IMPORTANTE:  
+> No gitbash o comando acima não executou corretamente (no powershell executou)  
+> Também posso usar o && para concatenar comandos (testado no CMD prompt): yarn build && yarn start
 
 ### Aula 01 - Apresentação - Vídeo 1
 
@@ -70,3 +74,55 @@ Nesta aula, o instrutor Mario Souto abordou a implementação da navegação no 
   - Pode-se criar um projeto Next.js adicionando os pacotes do framework manualmente num projeto Node.js.
 - Componente Link
   - Este componente permite a navegação SPA de aplicações Next.js.
+
+## Aula 02 - Build e SEO na prática
+
+### Aula 02 - Entendendo o Build do Next.js - Vídeo 1
+
+> No powershell o comando abaixo NÃO EXECUTOU (no prompt executou)
+yarn build && yarn start
+
+O Next dá suporte para o Server Render, nós vamos vê-lo em outro momento desse curso ainda, mas por hora o que o Next está fazendo parece Server Render, mas vai gerar um monte de arquivos estáticos, ele está gerando um monte de arquivo estático para nós. Seguinte, aqui tem um build, que gera os arquivos estáticos e o servidor do próprio Next, otimizado para rodar o Next, que roda isso. É isso que está acontecendo.
+
+> O "next export" foi removido e substituido por uma linha de comando ("output: export") adicionada no arquivo (next.config.js, arquivo gerado quando usado o create-next-app com: √ Would you like to use App Router? (recommended) Yes). [Leia mais:](https://nextjs.org/docs/advanced-features/static-html-export)
+
+Aqui é uma feature avançada do Next, que é esse Next Export, para você conseguir visualizar esses arquivos que eu estou falando.  
+Eu vou criar aqui um comando chamado “export”:, no meu “package.json”, quando eu rodar yarn export, é um atalho para “next build && next export”. Basicamente eu estou fazendo um atalho para rodar isso aqui.
+
+Repara que surgiu uma pasta “out”, à esquerda e dentro dela tem o “index.html”, o “faq.html” e a página “404.html”. Ele também tem esse monte de “chunks”, esse monte de arquivos JavaScript. Tudo que está aparecendo aqui que o Next gera, está aparecendo aqui também.
+
+Agora eu consigo copiar o path para esse arquivo na minha máquina e colar isso no navegador, então “/Users/mariosouto/dev/alura/01-nextjs-course/out/index.html” e ele abriu (estático). Para rodar, precisaria minimamente ter algum outro servidor rodando.
+
+Tem um que eu uso bastante para testes (http-server é um servidor básico), que é esse aqui, o npx http-server ./out, que é a pasta, e vou desabilitar o cache dele aqui, vou passar esse -c-1.
+
+Nesta aula, o instrutor discutiu sobre o processo de build do Next.js, destacando as diferenças entre o Next.js e o Create React App. Ele explicou a capacidade do Next.js de pré-carregar o código da aplicação, essencial para a estratégia de Server Side Render.
+
+Além disso, o instrutor abordou a otimização das páginas e a geração de arquivos estáticos, como HTML, CSS e JavaScript, pelo Next.js ao rodar o código no servidor. Essa abordagem permite que o servidor envie apenas esses arquivos estáticos para o usuário, sem a necessidade de processar o código a cada requisição, o que torna a aplicação mais eficiente em termos de desempenho e custo.
+
+Ele também demonstrou como utilizar o comando "next export" para visualizar os arquivos estáticos gerados pelo Next.js e discutiu diferentes opções de hospedagem para esses arquivos, destacando a Vercel como uma opção recomendada para o deploy de aplicações Next.js.
+
+Se precisar de mais detalhes ou exemplos práticos sobre algum ponto específico dessa aula, estou aqui para ajudar!
+
+### Aula 02 - SEO na prática - Vídeo 2
+
+Nesta aula, o palestrante aborda a importância do SEO (Search Engine Optimization) e como ele afeta o ranqueamento de um site nos resultados de busca do Google. Ele menciona as métricas de Web Vitals, como LCP (Largest Contentful Paint) e FID (First Input Delay), que são consideradas pelo Google na hora de classificar um site. No entanto, o palestrante ressalta que o conteúdo é o aspecto mais importante. Mesmo que existam estudos que comprovem que o Google agora renderiza o conteúdo, se o conteúdo não for bom e demorar para aparecer, o Googlebot pode penalizar o site. O palestrante mostra um exemplo prático usando o Create React App e o Next.js. Ele explica que, no Create React App, o conteúdo só é renderizado quando o cliente (navegador) termina de baixar os scripts e o React é executado. Já no Next.js, o conteúdo estático gerado já contém o conteúdo HTML, o que melhora a velocidade de carregamento. O palestrante demonstra isso ao mostrar o código fonte das páginas e como o conteúdo é exibido. Ele menciona que em vídeos futuros irá aprofundar mais sobre a diferença entre rodar no servidor e no cliente, que é um conceito importante a ser aprendido.
+
+### Aula 02 - Sobre o Next.js
+
+Uma aplicação web criada com Next.js:
+
+- Possibilita Server Side Rendering (SSR).
+  - O Next.js consegue pré-renderizar o HTML para cada requisição.
+- Possibilita geração de conteúdo estático (Static Site Generation - SSG).
+  - O Next.js consegue pré-renderizar o HTML durante o build que será reutilizado em todas as requisições.
+- Tem melhor SEO.
+  - O SSR e SSG facilitam o escaneamento dos motores de busca, como resultado a aplicação tem uma melhor nota de SEO.
+
+### Aula 02 - Nesta aula você aprendeu`:`
+
+- Como buildar um projeto Next.js
+  - O comando next build && next export gera os arquivos que serão utilizados no ambiente de produção.
+- SEO no Next.js
+  - O Next.js entrega o conteúdo da página diretamente, enquanto no Create React App ele é gerado após o carregamento. Como resultado o SEO é melhor.
+- create-next-app
+  - Essa ferramenta realiza o setup inicial por você, facilitando o início de uma aplicação Next.js.
