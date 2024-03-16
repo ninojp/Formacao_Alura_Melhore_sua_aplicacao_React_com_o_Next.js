@@ -167,3 +167,62 @@ Por fim, o professor anunciou que nas próximas aulas serão abordados recursos 
   - Podemos criar novas pastas para agrupar componentes com propósitos semelhantes.
 - Lidar com arquivos estáticos
   - Conseguimos acessar os arquivos dentro da pasta public diretamente pela URL da aplicação.
+
+## Aula 04 - Dados dinâmicos no Next.js
+
+### Aula 04 - getStaticProps - Vídeo 1
+
+Nesta aula, o instrutor discute a implementação de um FAQ em uma aplicação utilizando o framework Next.js. Ele destaca que o conhecimento prévio de React pode ser reaproveitado no Next.js, incluindo o uso de useEffect, Affect Api e Axios para fazer requisições de dados.
+
+O Next.js oferece vantagens em relação ao React, especialmente em termos de performance. O instrutor demonstra o processo de obtenção dos dados da API utilizando o fetch() e mostra como converter a resposta em um objeto JavaScript. Em seguida, ele utiliza o useState() para armazenar os dados obtidos e renderizá-los na tela.
+
+A importância da performance na experiência do usuário é destacada, explicando como o tempo de carregamento do conteúdo pode impactar no Largest Contentful Paint, uma métrica de performance do Google. O instrutor compara o carregamento de conteúdo no Next.js com o carregamento no React puro, mostrando como o Next.js permite carregar partes do conteúdo de forma mais rápida e eficiente.
+
+Para melhorar o desempenho, o instrutor utiliza a função getStaticProps() do Next.js para pré-carregar os dados do FAQ. Ele explica como essa função funciona e mostra como os dados pré-carregados são injetados na página através das props, permitindo que o conteúdo seja renderizado instantaneamente, sem atrasos de carregamento.
+
+O Next.js trabalha em conjunto com o React, utilizando o Server Side Rendering para sincronizar os dados pré-carregados e renderizar o conteúdo de forma eficiente. O instrutor destaca que o Next.js gera uma versão estática do conteúdo durante o processo de build, o que permite que o usuário acesse a página e veja o conteúdo instantaneamente, sem a necessidade de carregamentos adicionais.
+
+No próximo vídeo, o instrutor promete aprofundar-se ainda mais na obtenção de conteúdo dinâmico no Next.js, abordando detalhes importantes a serem considerados.
+
+### Aula 04 - getServerSideProps - Vídeo 2
+
+Nesta aula, o instrutor abordou o conceito de getStaticProps e getServerSideProps no Next.js. O getStaticProps é utilizado para criar sites estáticos, ou seja, sites cujo conteúdo não será alterado mesmo que a API mude. Foi mostrado na prática como utilizar o getStaticProps e explicado que é necessário fazer um novo build do site para que as alterações sejam refletidas. Foi mencionada a importância de trabalhar no modelo da Jamstack, que consiste em utilizar JavaScript, código assíncrono e Markdown para renderizar conteúdo dinâmico. Foram destacadas as vantagens de ter um site estático, como a redução de custos de infraestrutura e a possibilidade de utilizar cache. Foi mencionado que o getServerSideProps é uma alternativa ao getStaticProps quando é necessário que a página seja dinâmica e esteja sempre em sincronia com o conteúdo atualizado. No entanto, foi ressaltado que, em geral, é preferível ter páginas estáticas, pois elas têm uma resposta mais rápida e são mais disponíveis. Foi explicado que o getStaticProps é executado apenas durante o build do projeto, enquanto o getServerSideProps é executado a cada acesso à página. Foi mostrado como utilizar essas funções em modo de desenvolvimento e em modo de produção. Foi enfatizada a importância de entender quando cada uma dessas funções é executada e sugerido o uso de console.log para debugar o código. Por fim, foram mencionados os diferentes tipos de renderização, como SSG (Static Site Generation) e SSR (Server Side Rendering), e os alunos foram convidados a explorarem esses conceitos por conta própria.
+
+### Aula 04 - Como manipular o Head das páginas - Vídeo 3
+
+Claro! Nesta aula, o instrutor abordou a personalização do cabeçalho das páginas em um projeto Next.js. Ele explicou como ajustar o título da página e carregar uma fonte personalizada utilizando o componente "next/head". Além disso, mostrou como importar o componente e utilizá-lo no código, demonstrando que ao adicionar o código `<Head> <title>`Home - Alura Cases Campanha`</title> </Head>`, é possível alterar o cabeçalho da página. Também mencionou a aplicação dessa personalização em outras páginas, como o FAQ, e como carregar fontes personalizadas para todas as páginas do projeto. O instrutor ainda mostrou como baixar a fonte desejada do Google Fonts e adicionar a tag `<link>` no cabeçalho do arquivo "_app.js" para carregar a fonte em todas as páginas. Por fim, ressaltou a importância de fechar corretamente as tags no JSX do React e mencionou que no próximo vídeo será abordado como carregar scripts externos e outros recursos relacionados ao cabeçalho das páginas no Next.js.
+
+### Aula 04 - Next e Google Analytics - Vídeo 4
+
+Link para a [aula 04](https://cursos.alura.com.br/course/next-js-iniciando-framework/task/101658) com todos os detalhes (precisa estar logado).
+
+Por motivos práticos(conta e campanha no alaytics) vou apenas acompanhar a aula sem fazer na prática.
+
+Nesta aula, o instrutor ensina como utilizar o Google Analytics em um site desenvolvido com Next.js. O Google Analytics é uma ferramenta importante para acompanhar métricas e realizar rastreamentos em sites e campanhas. O vídeo foca na instalação da ferramenta, que é uma tarefa comum para os desenvolvedores. O processo envolve criar uma nova conta no Google Analytics, criar a propriedade do site, realizar o acompanhamento do site e incluir a tag do Google Analytics no código do site. Após a instalação, é possível acessar os relatórios do Google Analytics para visualizar informações sobre os acessos ao site, como o número de visitantes e o tipo de dispositivo utilizado. Em resumo, o trecho do vídeo ensina passo a passo como instalar e utilizar o Google Analytics em um site desenvolvido com Next.js.
+
+### Aula 04 - Para saber mais: Referências da aula
+
+[getStaticProps](https://nextjs.org/docs/pages/building-your-application/data-fetching#getstaticprops-static-generation) (Static Generation)
+
+[useEffect](https://pt-br.legacy.reactjs.org/docs/hooks-reference.html#useeffect)
+
+[Web.dev](https://web.dev/articles/vitals?hl=pt-br) - Web Vitals
+
+[getServerSideProps](https://nextjs.org/docs/pages/building-your-application/data-fetching/get-server-side-props) (Server-side Rendering)
+
+[Jamstack](https://jamstack.org/)
+
+SSG - Static Site Generation
+
+SSR - Server Side Rendering
+
+ISG - Incremental Static Generation
+
+### Aula 04 - Nesta aula você aprendeu`:`
+
+- getStaticProps
+  - Essa função busca os dados durante o build. Ou seja, essa função é executada apenas uma vez.
+- getServerSideProps
+  - Essa função busca os dados do lado do servidor para cada requisição.
+- Ao modificar o título da página
+  - Com o componente `<Head>` conseguimos editar os metadados de cada página, como, por exemplo, o título.
