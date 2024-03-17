@@ -226,3 +226,37 @@ ISG - Incremental Static Generation
   - Essa função busca os dados do lado do servidor para cada requisição.
 - Ao modificar o título da página
   - Com o componente `<Head>` conseguimos editar os metadados de cada página, como, por exemplo, o título.
+
+## Aula 05 - Publicando seu projeto
+
+### Aula 05 - next.config.js e Redirects - Vídeo 1
+
+Nesta aula, o instrutor abordou os ajustes necessários para o projeto antes de fazer o deploy. Ele mencionou a configuração do "trailing slash" e os redirects, explicando como fazer essas configurações no Next.js utilizando o arquivo "next.config.js". O instrutor também destacou a importância de verificar a aba "Network" do navegador para identificar erros relacionados ao carregamento de arquivos e sugeriu utilizar empresas como a Vercel para fazer o deploy do projeto. Além disso, ele explicou que ao utilizar várias configurações no arquivo "next.config.js", é assumido que não será mais utilizado o processo de gerar a pasta "output" com o comando "next export".
+
+### Aula 05 - Publicando na vercel - Vídeo 2
+
+Nesta aula, o instrutor Mario Souto explica como publicar um projeto no Vercel, uma plataforma de hospedagem para projetos de front-end. Ele destaca a importância de ter o projeto no GitHub e fazer o login na Vercel com a conta do GitHub. Em seguida, mostra o passo a passo para adicionar o projeto ao repositório do GitHub, utilizando comandos do Git no terminal. Além disso, ele ensina como criar um novo projeto na Vercel, selecionando o repositório do GitHub, e explica que a Vercel irá otimizar as configurações para o Next.js. O instrutor também destaca a possibilidade de configurar um domínio personalizado para o projeto na Vercel e a vantagem de criar um branch e fazer um pull request, com um link de preview para revisar as alterações antes de fazer o merge. Por fim, ele menciona que a Vercel oferece um limite alto de uso gratuito para usuários individuais e convida os espectadores a assistir ao próximo vídeo para pegar o certificado do projeto.
+
+### Aula 05 - Para saber mais: Referências da aula
+
+Que tal saber o status HTTP correto das requisições com cachorrinhos???
+[HTTP STATUS DOGS](https://httpstatusdogs.com/)
+
+Para saber mais sobre redirects no Next, segue uma leitura incrível:
+[Redirects](https://nextjs.org/docs/pages/api-reference/next-config-js/redirects)
+
+Para finalizar as leituras opcionais, recomendamos essa que mostra como o Next.js redireciona URLs com barras . Por exemplo /home/, redirecionará para /home. Você pode configurar esse comportamento para agir de maneira oposta, onde urls sem barras finais são redirecionadas para suas contrapartes com barras finais.
+[Trailing Slash](https://nextjs.org/docs/pages/api-reference/next-config-js/trailingSlash)
+
+### Aula 05 - Nesta aula você aprendeu`:`
+
+- O que é o next.config.js
+  - Neste arquivo, podemos modificar algumas configurações, como, por exemplo, redirects e adição do trailing slash no final da URL automaticamente.
+- Como fazer o deploy do seu projeto Next.js
+  - A criadora do framework (Vercel) oferece uma plataforma de hosting de forma gratuita e integrada ao GitHub.
+- Benefícios de hospedar na Vercel
+  - A plataforma oferece fácil integração com plataformas de versionamento de código, assim como HTTPs e domínios customizados.
+
+### Aula 05 - Conclusão - Vídeo 3
+
+Nesta aula, o instrutor conclui o curso sobre Next.js e entrega os certificados aos alunos. Durante o curso, foram abordados diversos tópicos relacionados ao Next.js, desde a criação do primeiro script até a publicação do projeto. Foram apresentadas as vantagens de usar a plataforma Vercel, incluindo o recurso de visualização de pull requests. Além disso, foram explicados o funcionamento da pasta "pages" no Next.js, a importância de organizar os componentes e telas em subpastas, bem como o uso da pasta "source". Também foi abordado o gerenciamento de imagens e arquivos públicos, bem como a configuração do arquivo "robots.txt". O instrutor também explicou as diferenças entre as funções getStaticProps e getServerSideProps, recomendando o uso do getStaticProps por padrão. Ele enfatizou a importância de se familiarizar com o ecossistema do Next.js, incluindo a leitura da documentação oficial e a busca por soluções em casos de dúvidas, além de ficar atento às versões do Next.js e de consultar os exemplos disponíveis no GitHub. O instrutor encerrou a aula agradecendo aos alunos pela participação no curso e pedindo avaliações para continuar trazendo mais conteúdos sobre Next.js. Ele também convidou os espectadores a se inscreverem em seu canal do YouTube, onde há mais vídeos sobre Next.js, JavaScript e outros assuntos relacionados ao desenvolvimento web.
