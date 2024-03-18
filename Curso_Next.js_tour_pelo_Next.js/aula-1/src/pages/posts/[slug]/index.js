@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-export default function Post(){
+export default function Post() {
     const router = useRouter();
-    console.log(router)
+    // console.log(router)
 
-    return(
+    return (
         <div className="div-container">
-            <h1>Página de Posts!</h1><br/>
+            <h1>Página de Posts!</h1><br />
             <p>Slug da Página atual: {router.query.slug}</p>
             <ul>
                 <li>
@@ -17,7 +17,7 @@ export default function Post(){
                     <Link href='/sobre'>Link Pg-Sobre</Link>
                 </li>
                 <li>
-                    <Link href='/posts/*'>Link Pg-Posts</Link>
+                    <Link href={`/posts/${router.query.slug}/comentarios`}>Ir para comentarios</Link>
                 </li>
             </ul>
         </div>

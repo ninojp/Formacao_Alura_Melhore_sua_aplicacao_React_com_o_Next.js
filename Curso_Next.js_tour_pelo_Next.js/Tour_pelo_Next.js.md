@@ -15,3 +15,19 @@ Claro! Nesta aula, o instrutor introduziu o tema de performance em desenvolvimen
 Nesta aula, o instrutor recapitula os recursos principais do Next.js, uma ferramenta que se posiciona como o SDK da Web. Ele mostra como criar a estrutura de um projeto utilizando o NPM e o comando npm init -y, além de instalar dependências fornecidas pelo Next.js. Também é abordada a criação de páginas, onde o instrutor explica que o Next.js espera que exista uma pasta chamada "pages" onde serão criadas as páginas do projeto. Ele demonstra como criar páginas de boas-vindas, uma página "sobre" e uma página 404 personalizada. Além disso, são abordados temas como adição de estilos, utilização do componente "App" para envolver todas as páginas do projeto e customização da tag "document" para definir o idioma do site. O instrutor enfatiza a importância de personalizar a estrutura do projeto e fazer com que ele tenha a identidade do desenvolvedor.
 
 ## Aula 01 - Estrutura de projeto II - Vídeo 4
+
+Nesta aula, o instrutor abordou a criação de rotas dinâmicas em uma aplicação utilizando o Next.js. Ele explicou como criar páginas dinâmicas, utilizando como exemplo a criação de uma página de posts. O instrutor demonstrou como criar a estrutura de pastas para os posts, criando uma pasta chamada "posts" dentro da pasta "pages" e um arquivo chamado "post.js" para representar a página de um post específico. Além disso, ele explicou como o Next.js reconhece automaticamente qualquer arquivo criado dentro da pasta "pages" e adiciona-o às rotas do projeto. O instrutor também introduziu o conceito de roteamento no Next.js, explicando o uso do "useRouter" para lidar com esse aspecto e como navegar entre páginas utilizando o componente "Link" do Next.js. Por fim, ele destacou a importância de organizar as pastas e arquivos em um projeto Next.js, além de mostrar como carregar uma imagem estática na aplicação. Esses conhecimentos são fundamentais para o desenvolvimento de aplicações mais complexas e interativas utilizando o Next.js.
+
+## Aula 01 - Rotas dinâmicas com Next.js
+
+Você pode aprender mais sobre rotas dinâmicas neste artigo Navegação com Next.Js utilizando [rotas dinâmicas](https://www.alura.com.br/artigos/navegacao-next-js-utilizando-rotas-dinamicas).
+
+## Aula 01 - Nessa aula, você aprendeu`:`
+
+- Como o Next.js melhora suas métricas da web;
+- Sobre arquivos específicos do Next.js como o _app.js, '_document.js' e 404.js e suas funcionalidades;
+- Como criar e utilizar rotas dinâmicas.
+
+## Aula 02 - Páginas com Next.js
+
+## Aula 02 - Static Site Generation I - Vídeo 1
