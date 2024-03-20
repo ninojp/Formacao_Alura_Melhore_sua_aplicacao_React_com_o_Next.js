@@ -2,7 +2,6 @@ import { Box, Text, Button } from '@skynexui/components';
 import { useRouter } from 'next/router';
 import nookies from 'nookies';
 
-
 export default function LoggedScreen() {
   const router = useRouter();
   return (
@@ -21,7 +20,6 @@ export default function LoggedScreen() {
       <Text styleSheet={{ marginVertical: '32px' }}>
         Você acessou uma área protegida!
       </Text>
-
       <Button
         label='Logout'
         onClick={() => {
@@ -34,16 +32,11 @@ export default function LoggedScreen() {
     </Box>
   );
 }
-
-
 export function getStaticProps(ctx) {
   const SENHA_MESTRE = '123456';
   const cookies = nookies.get(ctx);
-
   // Cookies NÃO existem em build time
   console.log('[static] Cookies', cookies);
-  
-  
   return {
     props: {},
   }

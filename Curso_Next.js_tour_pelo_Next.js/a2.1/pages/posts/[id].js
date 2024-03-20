@@ -9,32 +9,27 @@ export async function getStaticPaths() {
   //   { params: { id: '1' } },
   //   { params: { id: '2' } },
   //   { params: { id: '3' } }
-  // ]
+  // ] 
   const paths = dados.posts.map((postAtual) => {
     return { params: { id: `${postAtual.id}` } };
   })
-  console.log('dados:', dados);
-  console.log('paths:', paths);
-
+//   console.log('dados:', dados);
+//   console.log('paths:', paths);
   return {
     paths: paths,
     fallback: false // false or 'blocking'
   };
-}
-
+};
 export async function getStaticProps(context) {
   console.log('Contexto', context.params.id);
   const id = context.params.id;
-
   const post = dados.posts.find((currentPost) => {
     if(currentPost.id === id) {
       return true;
     }
     return false;
   })
-
-  console.log(post);
-
+//   console.log(post);
   return {
     props: {
       id: post.id,
@@ -43,8 +38,7 @@ export async function getStaticProps(context) {
       content: post.content,
     }, 
   }
-}
-
+};
 export default function PostByIdScreen(props) {
   // console.log(props);
   const router = useRouter();
@@ -54,11 +48,9 @@ export default function PostByIdScreen(props) {
     date: props.date,
     content: props.content,
   };
-
   if(router.isFallback) {
     return 'Essa página não existe!';
   }
-
   return (
     <Box
       styleSheet={{

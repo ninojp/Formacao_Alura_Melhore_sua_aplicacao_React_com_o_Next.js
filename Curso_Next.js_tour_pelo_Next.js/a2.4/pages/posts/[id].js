@@ -1,23 +1,20 @@
 import NextLink from 'next/link';
 import { Box, Text } from '@skynexui/components';
 import { useRouter } from 'next/router';
-
 // dica dos paths estáticos
 export async function getStaticPaths() {
-  // const dadosDaAPI = await fetch('https://fakeapi-omariosouto.vercel.app/api/posts')
-  //   .then((res) => res.json());
-
-  // const paths = dadosDaAPI.posts.map((postAtual) => {
-  //   return { params: { id: `${postAtual.id}` } };
-  // })
-
+//   const dadosDaAPI = await fetch('https://fakeapi-omariosouto.vercel.app/api/posts')
+//     .then((res) => res.json());
+//   const paths = dadosDaAPI.posts.map((postAtual) => {
+//     return { params: { id: `${postAtual.id}` } };
+//   })
   return {
-    // paths: paths,
-    paths: [],
+    // paths: paths, //Faz(no building) um pré caching de todas as paginas
+    paths: [], //Não está fazendo nenhum[] pré caching
+    // fallback: 'false' // true or 'blocking'
     fallback: 'blocking' // false or 'blocking'
   };
 }
-
 export async function getStaticProps(context) {
   const id = context.params.id;
   console.log(`Gerou! ${id}`);
@@ -30,8 +27,6 @@ export async function getStaticProps(context) {
   //   }
   //   return false;
   // })
-
-
   return {
     props: {
       id: post.id,
@@ -39,10 +34,9 @@ export async function getStaticProps(context) {
       date: post.date,
       content: post.content,
     }, 
-    revalidate: 60,
+    revalidate: 10,
   }
 }
-
 export default function PostByIdScreen(props) {
   const router = useRouter();
   const post = {
@@ -50,11 +44,9 @@ export default function PostByIdScreen(props) {
     date: props.date,
     content: props.content,
   };
-
   if(router.isFallback) {
     return 'Essa página não existe, ainda!!';
   }
-
   return (
     <Box
       styleSheet={{
@@ -75,7 +67,6 @@ export default function PostByIdScreen(props) {
       <Text styleSheet={{ color: '#F9703E', justifyContent: 'center', borderBottom: '1px solid #F9703E', paddingVertical: '16px', marginVertical: '16px' }}>
         {post.date}
       </Text>
-
       {/* Área de Conteudo */}
       <Box
         styleSheet={{
@@ -88,8 +79,6 @@ export default function PostByIdScreen(props) {
 
         {post.video && <iframe style={{ marginTop: '32px', minHeight: '400px' }} src={post.video} /> }
       </Box>
-
-
       {/* Rodapé */}
       <Box
         styleSheet={{

@@ -6,9 +6,10 @@ export async function getServerSideProps(context) {
   const cookies = nookies.get(context);
   console.log('Cookies', cookies);
   const SENHA_SECRETA = '123456';
+//   const senhaInformadaPeloUsuario = '123456';
   const senhaInformadaPeloUsuario = cookies.SENHA_SECRETA;
   const isAutorizado = SENHA_SECRETA === senhaInformadaPeloUsuario;
-  
+
   if(!isAutorizado) {
     console.log('NÃO Autorizado!!!');
     return {
@@ -17,14 +18,13 @@ export async function getServerSideProps(context) {
         destination: '/?status=401',
       }
     };
-  }
+  };
 
   console.log('Autorizado!!!');
   return {
     props: {}
   }
-}
-
+};
 export default function LoggedScreen(props) {
   const router = useRouter();
   return (

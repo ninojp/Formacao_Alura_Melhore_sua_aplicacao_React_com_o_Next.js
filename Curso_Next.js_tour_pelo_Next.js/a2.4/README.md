@@ -1,5 +1,5 @@
 
-## Sobre tempo de build no Nextjs
+# Sobre tempo de build no Nextjs
 
 ```md
 - SSG (next export) [4 posts]: 7.89s.
