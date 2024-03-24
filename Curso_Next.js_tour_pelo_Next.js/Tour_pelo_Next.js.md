@@ -221,3 +221,85 @@ Sobre o Incremental Static Regeneration (ISR) marque as alternativas corretas:
 - Criar uma API com Next.js através da pasta pages/api;
 - Carregar componentes sob demanda com [Dynamic Imports](https://nextjs.org/docs/pages/building-your-application/optimizing/lazy-loading);
 - Adicionar o TypeScript ao seu projeto Next.js e como a tipagem de funções da biblioteca podem te ajudar durante o desenvolvimento.
+
+## Aula 05 - Dicas finais e Deploy
+
+## Aula 05 - Fazer o deploy do projeto - Vídeo 1
+
+Nesta aula, o professor abordou o tópico de deploy de projetos com Next.js. Ele mencionou várias opções de hospedagem, como GitHub Pages, Amazon S3, Vercel, AWS Amplify, Heroku, DigitalOcean e Netlify. O professor destacou a importância de ter cuidado ao configurar serviços como a Amazon, para evitar despesas altas sem querer. Ele recomendou estudar e aprender antes de colocar um projeto em produção. Além disso, o professor mencionou que utiliza a Vercel em seus projetos pessoais, pois ela oferece uma ferramenta de monitoramento do desempenho do site, como o Web Vitals. Ele mostrou um exemplo de como a Vercel fornece dados de produção da aplicação, permitindo identificar pontos de melhoria. O professor também mencionou outras ferramentas de monitoramento, como o Calibre App Performance e o Sentry. Ele ressaltou a importância de analisar custos e escolher a opção que faz mais sentido para cada projeto, seja ele pessoal ou corporativo. O professor encerrou a aula prometendo mais dicas sobre o Next.js no próximo vídeo.
+
+## Aula 05 - Componentes e features novas - Vídeo 2
+
+Nesta aula, o instrutor menciona recursos do Next.js que não foram abordados durante o curso. Ele fala sobre o componente de imagem do Next.js, que oferece otimizações e integrações interessantes, mas funciona melhor quando usado na infraestrutura da Vercel ou com um provedor externo que realiza a otimização de imagem. O instrutor explica que optou por não abordar esse componente no curso, pois está muito acoplado à Vercel e o objetivo era falar sobre o Next.js em si. No entanto, ele menciona que haverá outros cursos que abordarão o componente de imagem, tanto na formação quanto em seu canal no YouTube.
+
+Além disso, o instrutor menciona a internacionalização, que será abordada em um curso específico sobre o assunto, e o uso de middlewares, que é um recurso mais recente e é muito utilizado para fazer autenticação. Ele revela que nos próximos cursos da formação "early access" serão abordados os middlewares, assim como os outros recursos mencionados anteriormente.
+
+O instrutor encerra incentivando os espectadores a deixarem seu feedback no Twitter, tanto para ele quanto para a Alura, para que possam guiar os próximos cursos e melhorar o conteúdo oferecido. Ele agradece pelo acompanhamento e se despede, finalizando o curso.
+
+## Aula 05 - Desafio: de onde vem as props da página?
+
+Durante os cursos, você viu as diferentes estratégias de pré-renderização de páginas que o Next.js nos fornece: Server Side Rendering, Static Site Generation, Incremental Static Regeneration e até mesmo o Client Side Rendering.
+
+Para usar os primeiros 3 métodos, é preciso implementar as funções getServerSideProps, getStaticPaths e getStaticProps com o atributo revalidate, respectivamente.
+
+O retorno dessas funções retorna um objeto com a propriedade props, que é magicamente passado para o componente da página.
+
+Exemplo: no arquivo pages/index.js, podemos criar o componente
+
+```JavaScript
+function PaginaExemplo(props) {
+  return <div>{JSON.stringify(props, null, 2)}</div>;
+}
+export const getServerSideProps= async () => {
+  return {
+    props: {
+      curso: 'Next.js',
+      instrutor: 'Dev Soutinho',
+    },
+  };
+};
+export default PaginaExemplo;
+```
+
+Aprendemos na prática que o objeto props retornado de getServerSideProps será o mesmo que o props passado de argumento para o componente PaginaExemplo. Entretanto, a forma que isso acontece não é explícita.
+
+Deixamos pra você um desafio: tente descobrir onde o Next.js faz essa ligação.
+
+VER OPINIÃO DO INSTRUTOR
+
+Durante o curso, vimos sobre algum arquivo específico do framework que referencia uma propriedade pageProps, que curiosamente pode ser entendido como "props da página".
+
+Esse arquivo é o _app.js!
+
+```JavaScript
+function MyApp({ Component, pageProps }) {
+  return <Component {...pageProps} />;
+}
+export default MyApp;
+```
+
+A prop Component é o export default da página e o pageProps é o objeto props retornado de getServerSideProps.
+
+Seguindo o exemplo do arquivo pages/index.js criado acima, temos:
+
+Component: PaginaExemplo
+pageProps: { curso: "Next.js", instrutor: "Dev Soutinho" }
+Resumindo: para cada página da aplicação, o getStaticProps ou getServerSideProps são executados e o objeto props é encaminhado para o MyApp como pageProps.
+
+O MyApp é executado e o objeto pageProps é passado para o export default da página como props.
+
+## Aula 05 - Desafio: ordem de execução
+
+No desafio anterior, você foi além do básico e descobriu que através do _app, o Next.js passa a informação de getStaticProps e getServerSideProps para o componente da página.
+
+Como essas funções geram o conteúdo da página, é intuitivo pensar que elas precisam rodar antes que o componente da página. O _app.js precisa rodar antes do componente, porém depois da função que gera o conteúdo.
+
+Desafio: crie uma aplicação que demonstra na prática essa ordem de execução. Você pode fazer isso através de console.logs em cada função. Crie páginas usando SSR, SSG e ISR e veja no terminal e no DevTools a ordem que cada função é executada.
+
+Observação: lembre-se de usar os comandos next build e next start para ver o SSG e ISR em modo de produção.
+
+Extra: além do _app.js, também vimos outro arquivo específico do Next.js: o _document.js. Tente achar seu lugar na ordem de execução.
+
+## Aula 05 - Conclusão - Vídeo 3
+
+Claro! Neste trecho final do curso de formação em Next.js, o instrutor faz um resumo do conteúdo abordado ao longo do curso e convida os alunos a participarem da formação completa. Ele destaca a importância de revisar cada um dos pontos abordados no curso, ressaltando que, apesar do Next.js parecer complexo inicialmente, uma vez que se entende seu funcionamento, é possível aproveitar ao máximo suas vantagens. Durante o curso, foram apresentados diversos tipos de projetos, como blogs, e-commerce, sites de votação e até mesmo um site relacionado ao conceito da Mega-Sena, com resultados e acesso de muitas pessoas. Além disso, foram discutidas diferentes abordagens em relação ao consumo de processamento, visando fornecer aos alunos uma compreensão mais ampla sobre o assunto. Por fim, o instrutor convida os alunos não apenas a participarem dos próximos cursos da formação, mas também a acompanharem seu trabalho no YouTube, por meio do canal Dev Soutinho. Ele encerra a mensagem agradecendo aos alunos e pedindo que deixem uma avaliação para ajudar a melhorar a qualidade dos próximos cursos.

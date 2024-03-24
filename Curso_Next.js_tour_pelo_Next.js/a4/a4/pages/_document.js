@@ -5,7 +5,6 @@ class MyDocument extends Document {
     const initialProps = await Document.getInitialProps(ctx)
     return { ...initialProps }
   }
-
   render() {
     return (
       <Html lang="pt-BR"> 
@@ -18,5 +17,4 @@ class MyDocument extends Document {
     )
   }
 }
-
-export default MyDocument
+export default MyDocument;
