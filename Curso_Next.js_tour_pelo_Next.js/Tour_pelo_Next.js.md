@@ -119,3 +119,105 @@ Este artigo no curso tem muita imagem em seus exemplos... [Link para acessar](ht
 - Como o prefetch pode impactar na performance da sua aplicação;
 - Que é possível carregar componentes sob demanda com Dynamic Imports;
 - Adicionar o TypeScript ao seu projeto Next.js e como a tipagem de funções da biblioteca podem te ajudar durante o desenvolvimento.
+
+## Aula 04 - Next.js é FrameWork fullStack
+
+## Aula 04 - API Routes - Vídeo 1
+
+Nesta aula, o instrutor explorou o recurso de API Routes do Next.js, que possibilita a criação de endpoints de API dentro do projeto frontend. Foi mostrado como criar um endpoint que retorna um JSON e como utilizar esse recurso para acessar um backend externo. Além disso, destacou-se a importância de ter noções de como trabalhar com dados e fazer requisições, mesmo que o Next.js seja principalmente uma ferramenta para o frontend.
+
+## Aula 04 - API Routes com typescript
+
+Nessa aula você aprendeu que é possível criar APIs com Next.js através da criação de arquivos dentro de /pages/api. Ou seja, criar uma rota de uma API é tão fácil quanto criar páginas!
+
+Na aula passada, você aprendeu que o Next.js fornece tipagens para getStaticProps,getServerSideProps e até mesmo para o App. O framework também possui tipagens para as API Routes. Que tal utilizá-las para facilitar o desenvolvimento?
+
+OPINIÃO DO INSTRUTOR
+
+Existem 2 formas de tipar os handlers de uma API Route:
+
+- 1) Tipando o handler diretamente com NextApiHandler.
+
+```JavaScript
+import type { NextApiHandler } from 'next';
+const handler: NextApiHandler = (req, res) => {
+  res.status(200).json({ curso: 'next.js', instrutor: 'Dev soutinho' });
+};
+```
+
+- 2) Tipando as variáveis de requisição e resposta individualmente.
+
+```JavaScript
+import type { NextApiRequest, NextApiResponse } from 'next';
+export default (req: NextApiRequest, res: NextApiResponse) => {
+  res.status(200).json({ curso: 'next.js', instrutor: 'Dev Soutinho' });
+};
+```
+
+Também é possível tipar a resposta da API utilizando generics.
+
+Com NextApiHandler devemos passar o ResponseData como generics da função:
+
+```JavaScript
+import type { NextApiHandler } from 'next';
+export type ResponseData = {
+  curso: string;
+  instrutor: string;
+};
+const handler: NextApiHandler<ResponseData> = (req, res) => {
+  // res.status(200).json({ nome: 'Mario Souto' });
+  res.status(200).json({ curso: 'next.js', instrutor: 'Mario Souto' });
+};
+export default handler;
+```
+
+Com NextApiRequest e NextApiResponse devemos passar ResponseData como generics de NextApiResponse.
+
+```JavaScript
+import type { NextApiRequest, NextApiResponse } from 'next';
+export type ResponseData = {
+  curso: string;
+  instrutor: string;
+};
+export default (req: NextApiRequest, res: NextApiResponse<ResponseData>) => {
+  // res.status(200).json({ nome: 'Mario Souto' });
+  res.status(200).json({ curso: 'next.js', instrutor: 'Mario Souto' });
+};
+```
+
+Descomente a primeira linha do handler e veja o que acontece!
+
+## Aula 04 - Tipos de build da ferramenta - Vídeo 2
+
+Claro! Nesta aula, o instrutor Mario Souto faz um resumo sobre os conceitos e termos relacionados ao Next.js. Ele explica que o Next.js é uma ferramenta que pode ser utilizada tanto no frontend quanto no backend, sendo responsável pela construção do projeto. Em seguida, ele introduz o glossário do Next.js, que inclui os seguintes termos:
+
+- Static: É o modo padrão do Next.js, onde todas as páginas são pré-renderizadas como HTML estático. O conteúdo das páginas é gerado durante o processo de build e não é alterado durante a execução do aplicativo.
+
+- SSG (Static Site Generation): É uma forma de geração de páginas estáticas no Next.js. É possível utilizar o getStaticProps para gerar páginas estáticas com recursos limitados, e o revalidate para definir um tempo de atualização das páginas estáticas.
+
+- Incremental Static Generation: É uma variante do SSG que permite a geração de páginas estáticas de forma incremental, sob demanda do usuário. Para utilizá-lo, é necessário utilizar o fallback com o valor true ou 'blocking' e o getStaticPaths vazio ou com apenas alguns itens.
+
+- SSR (Server Side Render): É uma forma de renderização no lado do servidor no Next.js. Utilizando o getServerSideProps, é possível gerar páginas de forma dinâmica a cada requisição. Além disso, todas as API Routes, dentro da pasta /api, também são renderizadas no lado do servidor.
+
+O instrutor destaca a importância de entender o contexto de cada uma dessas opções e escolher a mais adequada para cada projeto. Ele menciona exemplos de casos em que cada opção pode ser mais vantajosa, como para um blog pequeno ou uma landing page, o Static Site Generation pode ser suficiente, enquanto para um e-commerce ou um site grande com muitas atualizações dinâmicas, o Incremental Static Generation pode ser mais adequado. Ele também menciona a possibilidade de utilizar o revalidate: true em conjunto com o Incremental Static Generation para definir um tempo de atualização das páginas.
+
+Em resumo, o Next.js oferece diferentes opções de renderização e geração de páginas, desde o modo estático até a renderização no lado do servidor, e é importante escolher a mais adequada para cada projeto.
+
+## Aula 04 - Benefícios do ISR
+
+Sobre o Incremental Static Regeneration (ISR) marque as alternativas corretas:
+
+- Utiliza o getStaticProps com o atributo revalidate.
+  - Alternativa correta! A ativação do ISR se dá pela adição do atributo revalidate com um valor numérico inteiro ao retorno de getStaticProps.
+
+- Une os benefícios da geração dinâmica e da estática.
+  - Alternativa correta! O cliente receberá a página instantaneamente, pois ela é gerada estaticamente. Caso o conteúdo precise ser atualizado, a página será (re)construida do lado do servidor e posteriormente servida como estática.
+
+- O atributo revalidate é o tempo em segundos que a página pré-renderizada ficará no cachê.
+  - Alternativa correta! Requisições feitas dentro do valor em segundos do atributo revalidate terão o retorno instantâneo da página cacheada.
+
+## Aula 04 - Nessa aula, você aprendeu a`:`
+
+- Criar uma API com Next.js através da pasta pages/api;
+- Carregar componentes sob demanda com [Dynamic Imports](https://nextjs.org/docs/pages/building-your-application/optimizing/lazy-loading);
+- Adicionar o TypeScript ao seu projeto Next.js e como a tipagem de funções da biblioteca podem te ajudar durante o desenvolvimento.
