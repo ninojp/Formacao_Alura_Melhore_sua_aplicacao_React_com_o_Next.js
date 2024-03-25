@@ -298,7 +298,7 @@ Desafio: crie uma aplicação que demonstra na prática essa ordem de execução
 
 Observação: lembre-se de usar os comandos next build e next start para ver o SSG e ISR em modo de produção.
 
-Extra: além do _app.js, também vimos outro arquivo específico do Next.js: o _document.js. Tente achar seu lugar na ordem de execução.
+Extra: além do _app.js, também vimos outro arquivo específico do Next.js: o _document.js Tente achar seu lugar na ordem de execução.
 
 ## Aula 05 - Conclusão - Vídeo 3
 
