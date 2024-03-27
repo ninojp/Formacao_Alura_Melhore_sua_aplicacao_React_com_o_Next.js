@@ -1,18 +1,19 @@
 import { useState } from "react";
 import { useRouter } from 'next/router';
+import { authService } from "../src/services/auth/authService";
 import styles from './HomeScreen.module.css';
 
 export default function HomeScreen() {
     const router = useRouter()
     const [valores, setValores] = useState({
-        usuario: 'ninojp',
+        usuario: 'omariosouto',
         senha: 'safepassword'
     });
-    function capturarMudanca(evento){
+    function capturarMudanca(evento) {
         const valorCampo = evento.target.value;
         const nomeCampo = evento.target.name;
         setValores((valorAtual) => {
-            return{
+            return {
                 ...valorAtual,
                 [nomeCampo]: valorCampo
             }
@@ -21,11 +22,25 @@ export default function HomeScreen() {
     return (
         <div className={styles.div_container}>
             <h1>Login</h1>
+
             <form onSubmit={(evento) => {
+                // onSubmit -> controller (Pega os dados do usuário e passa para um serviço)
                 evento.preventDefault();
-                router.push('auth-page-static');
-                // router.push('auth-page-ssr');
-                }}>
+                // authService -> serviço
+                authService
+                    .login({
+                        username: valores.usuario,
+                        password: valores.senha
+                    })
+                    .then(() => {
+                        // router.push('auth-page-static');
+                        router.push('auth-page-ssr');
+                    })
+                    .catch((erro) => {
+                        console.log(erro)
+                        alert('Usuário ou Senha incorretos!')
+                    });
+            }}>
                 <input
                     placeholder="Usuário" name="usuario"
                     value={valores.usuario}
@@ -47,4 +62,4 @@ export default function HomeScreen() {
             </form>
         </div>
     );
-}
+};

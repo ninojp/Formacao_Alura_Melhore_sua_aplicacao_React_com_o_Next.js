@@ -42,3 +42,62 @@ Super recomendo a leitura sobre O que é [Front-end e Back-end](https://www.alur
 
 Na próxima aula:
 Vamos realizar o login de forma prática e entender o que é JWT!
+
+## Aula 2 - Lidando com Tokens
+
+### Aula 2 - Login na prática - Vídeo 1
+
+Nesta aula, o instrutor Mario Souto abordou a questão da autenticação em um sistema utilizando o Back-End desenvolvido anteriormente. Ele explicou o uso do projeto Swagger para documentar o Back-End e mostrou alguns endpoints disponíveis, como "/api/login" e "/api/users". Em seguida, ele exemplificou uma requisição utilizando o cURL para realizar o login e obter os tokens de autenticação.
+
+No Front-End, o instrutor começou a desenvolver o código para realizar o login. Ele criou um módulo chamado "authService" com a função "login()", explicando que o login é um processo assíncrono e que será utilizado uma promessa para lidar com isso. O instrutor utilizou o método "fetch()" para fazer a requisição para a URL do Back-End, definindo o método da requisição como "POST" e os headers necessários. Ele também mostrou como tratar a resposta do servidor utilizando o método ".then()" e como lidar com erros na requisição utilizando o método ".catch()".
+
+Além disso, o instrutor demonstrou como utilizar variáveis de ambiente para definir a URL do Back-End de forma dinâmica, criando um arquivo ".env.local" na pasta do Front-End e definindo a variável de ambiente "NEXT_PUBLIC_BACKEND_URL" com o valor da URL do Back-End. Ele utilizou essa variável no código do "authService" para fazer a requisição.
+
+Por fim, o instrutor mencionou que nas próximas aulas serão abordados outros aspectos importantes, como salvar os tokens de autenticação, e recomendou vídeos e documentação disponíveis para estudar mais sobre variáveis de ambiente e promessas.
+
+### Aula 2 - HttpClient - Vídeo 2
+
+Nesta aula, o instrutor discute a utilização do Fetch em comparação com o Axios para realizar chamadas de rede em aplicações Front-End. Ele mostra como criar uma camada de abstração utilizando o HttpClient para simplificar o código e garantir consistência na aplicação. Além disso, o instrutor também mostra como tratar a resposta da API e realizar as conversões necessárias. O objetivo é isolar os processos repetitivos, como definir que estamos enviando um JSON e converter o valor de retorno. O instrutor propõe a criação de uma pasta chamada "infra" e dentro dela uma pasta chamada "HttpClient", onde será criado um arquivo chamado "HttpClient.js". Dentro desse arquivo, é exportada uma função chamada HttpClient, que recebe a URL e as opções do Fetch como parâmetros. O instrutor também mostra como simplificar o uso do HttpClient, passando diretamente o corpo da requisição no Fetch, sem a necessidade de utilizar o JSON.stringify, e definindo o Content-Type como application/json. Ao final, ele identifica um erro no código e mostra como corrigi-lo, mencionando que nos próximos vídeos irá aprofundar mais no assunto.
+
+### Aula 2 - Cookies e Storage - Vídeo 3
+
+Nesta aula, o instrutor abordou a implementação da autenticação em um serviço de login, explicando a importância de armazenar o access token de forma segura no dispositivo do usuário. Foram mencionadas duas opções de armazenamento: localStorage e sessionStorage, com o localStorage armazenando os dados permanentemente e o sessionStorage armazenando os dados apenas durante a sessão do navegador. Foi criada uma abstração chamada tokenService, responsável por gerenciar o armazenamento e recuperação do access token, com métodos save(), get() e delete(). Também foi abordada a necessidade de lidar com a autenticação no servidor, utilizando cookies para armazenar o token. Foi utilizada a biblioteca nookies para trabalhar com cookies, com métodos set() para armazenar o token e get() para recuperá-lo. Além disso, foi mostrado como utilizar o tokenService no servidor utilizando o método getServerSideProps().
+
+### Aula 2 - O que é JWT? - Vídeo 3
+
+Introdução ao [JWT:](https://jwt.io/introduction)
+
+Vídeo - [Lidando com dados sensíveis e tokens:](https://www.youtube.com/watch?v=BP2KQtCyzo8&t=445s).
+
+Foi usado para refresh automatizado o comando:
+> npx nodemon nome-token.jsx
+
+Claro! Nesta aula, o professor explicou sobre JWT (JSON Web Token) e como lidar com dados sensíveis e tokens. Ele começou explicando que o JWT é um padrão para criar tokens que podem ser visualizados por todos, desde que sigam o padrão do JWT, mas apenas quem gerou o token sabe que foi ele quem o gerou. O professor mostrou algumas funções disponíveis na biblioteca JWT, como decode, verify e sign. Em seguida, ele mostrou como criar um token usando a função sign, passando um objeto com informações do token, como o nome, e também a chave privada para verificar a autenticidade do token. Além disso, foram mencionadas algumas opções adicionais que podem ser passadas na função sign, como o algoritmo e o tempo de expiração do token. O professor também explicou como verificar se um token foi gerado por ele usando a função verify, passando o token gerado e a chave privada, e mostrou como fazer o decode de um token usando a função decode. Por fim, ele mencionou a importância dos tokens para autenticação em APIs e recomendou dar uma olhada no código do serviço de autenticação para entender melhor o processo.
+
+### Aula 2 - Para saber mais: JWT e links
+
+Já precisou fazer alguma alteração ou acessar um valor somente em produção ou desenvolvimento? Já cometeu o erro de armazenar e versionar um dado sensível no meio da sua codebase? Tenho um vídeo que fala de variáveis de ambiente. Assista e entenda como usá-las, a partir de casos de uso, libs e exemplos, tanto para [Front quanto para Back-End](https://www.youtube.com/watch?v=BP2KQtCyzo8):
+
+Além disso, separei esse [link incrível](https://nextjs.org/docs/pages/building-your-application/configuring/environment-variables#environment-variable-load-order) para falar sobre variáveis de ambiente no Next.
+
+O uso do callback pode ser um pouco confuso, por isso, para tirar todas as principais dúvidas, venha comigo assistir ao vídeo: [Descubra o que é callback no Javascript](https://www.youtube.com/watch?v=6lbBaM18X3g&t=7s):
+
+Leituras, vídeos e documentações recomendadas para você mergulhar ainda mais no universo do next.js:
+
+[JWT.io](https://jwt.io/)
+[LocalStorage](https://developer.mozilla.org/pt-BR/docs/Web/API/Window/localStorage)
+[SessionStorage](https://developer.mozilla.org/pt-BR/docs/Web/API/Window/sessionStorage)
+[Next e localStorage](https://www.youtube.com/watch?v=zSl_n-9yGRs)
+Uma coleção de auxiliares de cookies para Next.js, [GitHub Nookies](https://github.com/maticzav/nookies)
+
+### Aula 2 - O que aprendemos nesta aula`:`
+
+- Preparamos nossa aplicação com realizar requisições na API;
+
+- Entendemos como funcionam as variáveis de ambiente e como utiliza-las;
+
+- Criamos um Http Client para ser o middleware dos nossos requests e vimos a diferença entre Cookies, Local Storage e Session Storage.
+
+Na próxima aula:
+
+- Vamos aprender como podemos gerenciar as sessões de nossos usuários!
