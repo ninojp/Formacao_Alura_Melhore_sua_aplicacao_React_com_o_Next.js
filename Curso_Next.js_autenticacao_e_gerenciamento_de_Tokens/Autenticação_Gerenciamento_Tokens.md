@@ -101,3 +101,52 @@ Uma coleção de auxiliares de cookies para Next.js, [GitHub Nookies](https://gi
 Na próxima aula:
 
 - Vamos aprender como podemos gerenciar as sessões de nossos usuários!
+
+## Aula 3 - Gerenciando a sessão
+
+### Aula 3 - Sessão via Server Side Render - Vídeo 1
+
+Nesta aula, o professor abordou o tema da autenticação em uma aplicação. Ele explicou que é importante verificar se o token existe e permitir que o usuário prossiga apenas se ele estiver presente. Além disso, é necessário garantir que o token seja válido para a aplicação.
+
+Foi mostrado como implementar o gerenciamento do token no arquivo "frontend > pages > auth-page-ssr.js", sugerindo confiar em um serviço de token que fornece o token para a aplicação.
+
+Para verificar se o token é válido ou expirou, é necessário fazer uma solicitação ao backend. Foi explicado que é comum em projetos ter um mínimo de informações necessárias para trabalhar na aplicação, chamado de sessão. Foi demonstrado como obter a sessão do usuário fazendo uma solicitação ao backend com o token.
+
+Foi mostrado como criar uma função "getSession()" no arquivo "authService" que faz uma solicitação GET para a rota "/api/session" do backend, passando a autorização no cabeçalho da solicitação, incluindo o token.
+
+Além disso, foi demonstrado como filtrar a resposta da solicitação GET no arquivo "authService" usando o método ".then()" e como lidar com erros. O professor também introduziu o conceito de "decorator" e mostrou como criar uma função "withSession()" que pode ser usada para decorar a função "getServerSideProps()" em todas as páginas autenticadas. Por fim, sugeriu mover o código relacionado à sessão para um arquivo separado e importá-lo quando necessário.
+
+### Aula 3 - Sessão via Client Side - Vídeo 2
+
+Nesta aula, o instrutor abordou a implementação de controle de sessão em um projeto estático, mostrando como obter a sessão do usuário, lidar com erros de autenticação e redirecionar o usuário quando necessário. Foi explicado como criar uma função chamada useSession() que possui estados como session, loading e error, e como utilizar o useState do React para inicializar esses estados. Além disso, foi mostrado como utilizar o authService do frontend para obter a sessão por meio do método getSession(), utilizando o useEffect do React para executar esse código quando a página é carregada. Também foi apresentado o conceito de High-Order Component e como utilizá-lo para envolver a página e lidar com a sessão do usuário. Por fim, o instrutor ressaltou a importância de testar e entender todo o código apresentado para garantir o correto funcionamento do controle de sessão.
+
+### Aula 3 - Tokens na Web - Vídeo 3
+
+Sobre OWASP:
+
+Cross Site Request Forgery [(CSRF)](https://owasp.org/www-community/attacks/csrf);
+Cross Site Scripting [(XSS)](https://owasp.org/www-community/attacks/xss/);
+[Formação OWASP](https://www.alura.com.br/formacao-owasp).
+
+Claro! Nesta aula, o instrutor discute a importância da segurança em aplicações web, destacando que vai além do código. Ele menciona possíveis problemas de segurança, como o uso de redes Wi-Fi públicas e extensões de terceiros, e ressalta a importância de estar atento a padrões de ataques, como XSS e CSRF. Além disso, ele destaca a existência do CORS como medida de proteção. O instrutor enfatiza que a segurança é responsabilidade de toda a equipe e recomenda buscar conhecimento adicional sobre o tema, como o curso de OWASP oferecido pela Alura. Ele também destaca a importância de envolver especialistas em segurança, como hackers éticos, para garantir a segurança do sistema, e menciona a importância de definir políticas de autenticação e tempo de expiração adequados para os tokens de acesso. Por fim, ele reforça a importância de buscar referências adicionais e consultoria especializada em segurança.
+
+### Aula 3 - Para saber mais: links úteis
+
+Aprendemos tantas coisas legais nessa aula e quero deixar registrado algumas leituras para compreender em mais detalhes sobre o funcionamento do OWASP e autenticação no Next:
+
+Autenticação com [next-auth](https://next-auth.js.org/)
+Autenticação com Next - [Documentação oficial](https://nextjs.org/docs/pages/building-your-application/authentication)
+Documentação da [OWASP sobre CSRF](https://owasp.org/www-community/attacks/csrf) - em inglês
+Curso da Alura sobre [OWASP](https://www.alura.com.br/curso-online-owasp10-a5-broken-access-control)
+Ataque xss - [Cross-site scripting](https://owasp.org/www-community/attacks/xss/)
+
+### Aula 3 - O que aprendemos nesta aula`:`
+
+- Aprendemos o conceito de sessão e configuramos o tempo de expiração do token;
+
+- Utilizamos o Pattern Decorator para componentes;
+
+- Compreendemos questões de segurança e vulnerabilidade na web, tokens, diferentes tipos de ataques e defesas.
+
+Na próxima aula:
+Vamos aprender de forma prática o que é Refresh Token e as principais diferenças do Access Token!

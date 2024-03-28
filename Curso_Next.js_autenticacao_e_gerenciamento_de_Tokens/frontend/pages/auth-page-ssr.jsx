@@ -1,8 +1,9 @@
-import { tokenService } from '../src/services/auth/tokenService';
+import { withSession } from '../src/services/auth/session';
 import styles from './HomeScreen.module.css';
-import nookies from 'nookies';
-
-export default function AuthPageSsr(props) {
+// import { tokenService } from '../src/services/auth/tokenService';
+// import { authService } from '../src/services/auth/authService';
+// import nookies from 'nookies';
+function AuthPageSsr(props) {
     return (
         <div className={styles.div_container}>
             <h1>
@@ -14,14 +15,35 @@ export default function AuthPageSsr(props) {
         </div>
     );
 };
+export default AuthPageSsr;
+// export async function getServerSideProps(ctx) {
+//     try {
+//         const session = await authService.getSession(ctx);
+//         // const cookies = nookies.get(contexto);
+//         // console.log('Cookies', cookies);
+//         // const token = tokenService.get(contexto);
+//         // console.log(token)
+//         return {
+//             props: {
+//                 // token: tokenService.get(contexto)
+//                 session,
+//             }
+//         }
+//     }catch(erro){
+//         return{
+//             redirect: {
+//                 permanent: false,
+//                 destination: '/?error=404'
+//             }
+//         }
+//     }
+// };
 
-export async function getServerSideProps(contexto){
-    // console.log(tokenService.get())
-    const cookies = nookies.get(contexto);
-    console.log('Cookies', cookies)
+// Para todas as páginas que precisarem de autentificação (Decorator Patern)
+export const getServerSideProps = withSession((ctx) => {
     return {
         props: {
-            token: tokenService.get(contexto)
+            session: ctx.req.session
         }
     }
-}
+})

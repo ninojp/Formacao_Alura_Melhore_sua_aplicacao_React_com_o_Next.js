@@ -1,6 +1,8 @@
-import styles from './HomeScreen.module.css'
+import { withSessionHOC } from '../src/services/auth/session';
+import styles from './HomeScreen.module.css';
 
-export default function AuthPageStatic(props) {
+function AuthPageStatic(props) {
+    // console.log(session)
     return (
         <div className={styles.div_container}>
             <h1>
@@ -12,3 +14,4 @@ export default function AuthPageStatic(props) {
         </div>
     );
 };
+export default withSessionHOC(AuthPageStatic);
