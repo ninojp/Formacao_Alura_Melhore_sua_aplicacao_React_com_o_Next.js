@@ -150,3 +150,75 @@ Ataque xss - [Cross-site scripting](https://owasp.org/www-community/attacks/xss/
 
 Na próxima aula:
 Vamos aprender de forma prática o que é Refresh Token e as principais diferenças do Access Token!
+
+## Aula 4 - Trabalhando com Refresh Token
+
+### Aula 4 - Refresh e Access Token - Vídeo 1
+
+Nesta aula, o instrutor discute a importância de salvar o token de atualização (refresh token) de forma segura em uma aplicação. Ele explica que o refresh token pode gerar novos access tokens e refresh tokens, e, portanto, é uma informação sensível que deve ser protegida.
+
+Uma estratégia recomendada para proteger o refresh token é usar o Cookie HttpOnly, que é um cookie que não pode ser acessado por extensões do navegador. Dessa forma, o token fica armazenado no navegador, mas não pode ser acessado por terceiros. O instrutor também menciona que o uso do localStorage e sessionStorage não é recomendado, pois eles podem ser acessados por extensões ou scripts no cliente.
+
+O instrutor mostra um exemplo de como salvar o refresh token usando o Next.js, uma estrutura de backend. Ele cria uma rota "/api/refresh" que recebe o refresh token como parâmetro e armazena-o usando a biblioteca nookies. O token é salvo com as configurações de httpOnly e sameSite: 'lax' para garantir a segurança.
+
+Além disso, o instrutor mostra como recuperar o refresh token usando a mesma rota "/api/refresh" e exibir os cookies usando a função displayCookies. Ele demonstra que o token é salvo corretamente e pode ser acessado através dos cookies.
+
+No próximo vídeo, o instrutor irá abordar a lógica de atualização do token de acesso (access token) usando o refresh token.
+
+### Aula 4 - Middleware de Refresh - Vídeo 2
+
+Nesta aula, o instrutor mostrou como enviar o token de atualização (refresh token) para o servidor e gerar um novo token de acesso (access token) através de uma rota chamada regenerateTokens() no controlador. Foi explicado como criar o contexto ctx com as informações req e res, e em seguida, utilizar o HttpClient para fazer uma chamada POST para a URL do backend, passando o refresh_token no corpo da requisição. O resultado dessa chamada foi armazenado na variável refreshResponse. Foi mostrado como enviar o refresh_token no corpo da requisição, obtendo os cookies e extraindo o refresh_token deles. Também foi explicado como obter o novo refresh_token a partir da resposta da requisição e como atualizar o cookie com o novo refresh_token. Além disso, foi sugerido utilizar um if para verificar se a resposta foi bem-sucedida e, caso contrário, retornar um status de não autorizado. O instrutor destacou a importância de gerenciar o processo de atualização do token de acesso tanto no backend quanto no frontend.
+
+### Aula 4 - Ciclo de atualização dos Tokens #1 - Vídeo 3
+
+Nesta aula, o instrutor discute sobre a regeneração de access tokens e refresh tokens em um projeto. Ele mostra como lidar com a renovação do token no frontend, explicando o passo a passo para renovar o token e salvar a resposta. Além disso, ele sugere melhorias na estrutura da resposta, como deixar claro o status 200 e 401. O instrutor explica como implementar a lógica de regeneração e salvamento do token, mostrando o código necessário para isso. Ele também menciona que a sessão do usuário é responsável por lidar com a obtenção do token e explica como fazer isso no código. Por fim, ele aborda o fluxo do Middleware, que verifica o status da resposta inicial e decide se deve fazer o retry ou não.
+
+### Aula 4 - Ciclo de atualização dos Tokens #2 - Vídeo 4
+
+Nesta aula, o instrutor aborda a questão de autenticação e tokens em um servidor renderizado pelo Next.js. Ele explica que ao tentar rodar o Middleware no servidor, ocorre um problema devido ao fato de que o cookie só existe do lado do cliente. Isso significa que, quando o servidor side do Next.js tenta fazer uma requisição para um lambda e pegar a resposta, ele não tem acesso aos cookies do cliente.
+
+Para resolver esse problema, é necessário encontrar uma maneira de fazer com que o servidor tenha acesso aos cookies do cliente que está fazendo a requisição. O instrutor mostra o código em que o token de atualização não está sendo obtido corretamente e faz algumas alterações para corrigir isso. Ele explica que, para enviar o token de atualização, é necessário usar o método PUT em vez do GET.
+
+Em seguida, o instrutor mostra como fazer com que o código reconheça o método PUT e obtenha o token de atualização corretamente. Ele também mostra como passar o contexto para o HttpClient, para que seja possível acessar os cookies.
+
+O instrutor menciona a importância de salvar o token de atualização corretamente e mostra como fazer isso usando a biblioteca nookies. Ele também menciona que, se o token de atualização expirar, o usuário será automaticamente deslogado. Ele sugere que, na aplicação real, seja implementado um controle para não salvar o token de atualização sempre.
+
+No final do trecho, o instrutor comenta que esse código é complexo e pode exigir várias revisões. Ele também menciona que é importante ter cuidado com a variável isServer, que por padrão é assumida como true, e sugere usar o Boolean do contexto para evitar problemas.
+
+### Aula 4 - Para saber mais: segurança na web
+
+A segurança da Web é um conjunto de procedimentos, práticas e tecnologias para proteger servidores da Web, usuários e suas organizações. A segurança protege você contra comportamentos inesperados.
+
+A web está sendo cada vez mais usada por corporações e governos para distribuir informações importantes e realizar transações comerciais. Mas, o que é segurança
+
+Recomendo a leitura dos seguintes links abaixo:
+
+[HTTP Only](https://owasp.org/www-community/HttpOnly)
+[Cookies HTTP](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Cookies)
+[Cookie Same Site](https://developers.cloudflare.com/waf/troubleshooting/samesite-cookie-interaction/)
+[Refresh-tokens](https://auth0.com/docs/secure/tokens/refresh-tokens)
+[Quando usar refresh Token?](https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/)
+[Como funciona a interação do cookie](https://developers.cloudflare.com/waf/troubleshooting/samesite-cookie-interaction/)
+
+### Aula 4 - Sobre XSS
+
+Um cookie HTTP (um cookie web ou cookie de navegador) é um pequeno fragmento de dados que um servidor envia para o navegador do usuário. O navegador pode armazenar estes dados e enviá-los de volta na próxima requisição para o mesmo servidor.
+
+Sabendo disso, analise as afirmações abaixo e assinale apenas as afirmações verdadeiras sobre HTTP Only Cookies.
+
+- Um cookie HTTP Only pode ser usado para prevenir de ataques cross-site scripting.
+  - Para se prevenir de ataques cross-site scripting (XSS, Cross-Site Scriptin em inglês), os cookies HttpOnly são inacessíveis para a API JavaScript Document.cookie (en-US); eles são enviados só para o servidor. Por exemplo, cookies que persistem nas sessões de servidor não precisam estar disponíveis para o JavaScript e, portanto, a diretiva HttpOnly deve ser configurada.
+
+- É possível usar um Cookie para gerenciar uma sessão de um usuário.
+  - Alternativa correta! Podemos gerenciar Logins, carrinhos de compra, placar de jogos ou qualquer outra atividade que deva ser guardada por um servidor através de um cookie.
+
+### Aula 4 - O que aprendemos nesta aula`:`
+
+- Aprendemos a diferença entre Refresh e Access Token;
+
+- Criamos o Lambda da requisição POST e GET;
+
+- Desenvolvemos o middleware que realiza o refresh do Token.
+
+Na próxima aula:
+Vamos realizar o fluxo de logout e decidir o que mostrar para cada tipo de usuários!

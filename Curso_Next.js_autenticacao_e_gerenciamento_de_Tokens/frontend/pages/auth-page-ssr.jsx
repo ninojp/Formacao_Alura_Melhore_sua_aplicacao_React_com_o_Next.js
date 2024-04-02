@@ -16,6 +16,16 @@ function AuthPageSsr(props) {
     );
 };
 export default AuthPageSsr;
+// Para todas as páginas que precisarem de autentificação (Decorator Patern)
+export const getServerSideProps = withSession((ctx) => {
+    return {
+        props: {
+            session: ctx.req.session
+        }
+    }
+});
+
+// Código feito primeiro... durante a aula
 // export async function getServerSideProps(ctx) {
 //     try {
 //         const session = await authService.getSession(ctx);
@@ -38,12 +48,3 @@ export default AuthPageSsr;
 //         }
 //     }
 // };
-
-// Para todas as páginas que precisarem de autentificação (Decorator Patern)
-export const getServerSideProps = withSession((ctx) => {
-    return {
-        props: {
-            session: ctx.req.session
-        }
-    }
-})
