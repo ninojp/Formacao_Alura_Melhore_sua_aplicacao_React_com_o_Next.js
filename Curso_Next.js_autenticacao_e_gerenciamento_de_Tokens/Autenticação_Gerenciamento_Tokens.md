@@ -222,3 +222,41 @@ Sabendo disso, analise as afirmações abaixo e assinale apenas as afirmações 
 
 Na próxima aula:
 Vamos realizar o fluxo de logout e decidir o que mostrar para cada tipo de usuários!
+
+## Aula 5 - Logout, roles e dicas finais
+
+### Aula 5 - Fluxo de logout - Vídeo 1
+
+Nesta aula, o instrutor abordou a implementação da funcionalidade de logout em um projeto de autenticação utilizando Next.js. Inicialmente, foi criada uma página de logout chamada "logout.js", que retorna uma mensagem "Você será redirecionado em instantes...". Em seguida, foi mostrado como realizar o processo de logout, que consiste em deletar os tokens de autenticação. Para isso, foi utilizado o tokenService, que remove os tokens do localStorage, sessionStorage e cookies.
+
+Após a implementação do logout, foram adicionados links para a página de logout nas páginas de autenticação, tanto no server side render quanto no static. Além disso, na página inicial, foram adicionados links para acessar as páginas de autenticação.
+
+Em seguida, foi mostrado como redirecionar para a página inicial após o logout, utilizando o useRouter do Next.js para obter o objeto de roteamento e o método push para redirecionar para a página inicial.
+
+Foi observado que, mesmo após o logout, ainda era possível fazer login novamente devido ao refresh token não estar sendo removido. Para resolver esse problema, foi adicionada uma função de delete no endpoint de refresh da API, utilizando nookies para destruir o refresh token.
+
+Após a implementação do delete do refresh token, foi feito um await do HttpClient no useEffect da página de logout. Foi utilizado o método DELETE no HttpClient para remover o refresh token e, em seguida, foi feito o redirecionamento para a página inicial.
+
+Por fim, foi mostrado que, após o logout, a página de autenticação no server side render não mostra mais o refresh token, enquanto no static ainda é possível visualizá-lo. O instrutor ressaltou a importância de deixar o código claro e legível, e encerrou o vídeo com uma mensagem de agradecimento e despedida.
+
+### Aula 5 - Trabalhando com roles - Vídeo 2
+
+Nesta aula, o instrutor abordou a importância de lidar com as "roles" (funções ou papéis) em uma aplicação, em relação à autenticação e gerenciamento de tokens. Ele destacou a necessidade de obter as informações sobre as "roles" do usuário do lado do back-end, enfatizando a segurança dessa abordagem em comparação com a obtenção do lado do front-end. Além disso, foi ressaltada a importância de validar o token do lado do back-end para evitar riscos de segurança, como um usuário gerar um token falso e tentar se passar por um tipo de usuário diferente. O instrutor também recomendou evitar armazenar informações sensíveis no local storage e realizar testes para garantir a segurança da solução implementada.
+
+### Aula 5 - Para saber mais: autenticação JWT
+
+Quando um provedor de autenticação é compatível com JWT, os usuários fazem login no site usando o serviço do provedor e o serviço retorna um JWT criptografado com dados do usuário. O Netlify Identity foi desenvolvido para fornecer autenticação de usuário baseada em JWT e sugiro a seguinte leitura:
+
+- [Controle de acesso](https://docs.netlify.com/security/secure-access-to-sites/role-based-access-control/)
+
+- Quer saber como reduzir a quantidade de ifs do seu código? Então [assista esse vídeo](https://www.youtube.com/watch?v=S-jqd6WZ7M0&t=2s):
+
+### Aula 5 - O que aprendemos nesta aula`:`
+
+- Entendemos que precisamos desativar todos os tokens de session, localStorage e cookies no fluxo de logout, além de apagar o HTTP Only Token;
+
+- Usamos a sessão para decidir o que vamos mostrar para cada tipo de usuários, seja ele admin ou não.
+
+### Aula 5 - Conclusão - Vídeo 3
+
+Nesta aula, o instrutor discutiu a arquitetura de um sistema de autenticação utilizando Next.js, destacando a importância da separação de conceitos, como ter um serviço específico para o login e outro para os tokens. Ele mencionou o uso de lambdas do Next.js para a parte de servidor e a necessidade de hospedar o Next.js em um ambiente que permita maior acesso ao servidor ou em um ambiente estático com uma estrutura de backend por trás para garantir a segurança do access token. Além disso, o instrutor abordou a dificuldade de garantir a segurança em um ambiente estático do ponto de vista de autenticação e destacou a importância de salvar o cookie no modo HttpOnly associado ao domínio com o modo "lax" na hora de salvar. Ele também mencionou a possibilidade de um código de um fornecedor externo pegar dados dos usuários em um subdomínio de uma empresa. Por fim, o palestrante ressaltou a importância de seguir as diretrizes de segurança do OWASP (Open Web Application Security Project) e recomendou assistir aos vídeos do curso da Alura sobre OWASP. Ele concluiu o vídeo agradecendo pela participação e convidando os espectadores a deixarem avaliações e seguirem suas redes sociais.

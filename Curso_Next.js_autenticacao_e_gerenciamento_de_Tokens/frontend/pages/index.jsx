@@ -22,7 +22,6 @@ export default function HomeScreen() {
     return (
         <div className={styles.div_container}>
             <h1>Login</h1>
-
             <form onSubmit={(evento) => {
                 // onSubmit -> controller (Pega os dados do usuário e passa para um serviço)
                 evento.preventDefault();
@@ -59,6 +58,12 @@ export default function HomeScreen() {
                         Entrar
                     </button>
                 </div>
+                <p>
+                    <a href='/auth-page-ssr'>auth-page-ssr</a>
+                </p>
+                <p>
+                    <a href='/auth-page-static'>auth-page-static</a>
+                </p>
             </form>
         </div>
     );
