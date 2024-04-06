@@ -58,3 +58,55 @@ Sobre o Dato CMS é correto afirmar que:
 
 Na próxima aula:
 Vamos exibir os conteúdos em nossa página de FAQ usando o API Explorer do DatoCMS. Vamos lá?
+
+## Aula 2 - Setup inicial do DatoCMS
+
+## Aula 2 - FAQ: listando o conteúdo de uma pergunta - Vídeo 1
+
+O Endereço EndPoint foi pego de: [EndPoint](https://www.datocms.com/docs/content-delivery-api/api-endpoints)
+
+Nesta aula, o instrutor Mario Souto começa explicando como integrar a página com o conteúdo vindo do DatoCMS. Ele mostra como fazer uma busca utilizando uma query GraphQL para obter os dados desejados. Em seguida, ele demonstra como acessar o DatoCMS através de uma URL específica e como autenticar a requisição utilizando um token de API. O instrutor também mostra como estruturar o código para obter os dados do CMS de forma mais organizada, criando um serviço chamado cmsService. Ele utiliza a função fetch para fazer a requisição ao DatoCMS e trata possíveis erros utilizando try-catch. Além disso, o instrutor mostra como utilizar variáveis de ambiente para armazenar o token de API de forma segura. Por fim, ele explica que o próximo passo será aprimorar a renderização do conteúdo obtido do DatoCMS na página.
+
+## Aula 2 - Para saber mais: variáveis de ambiente
+
+Se você já precisou fazer alguma alteração ou acessar um valor somente em produção ou desenvolvimento, já cometeu o erro de armazenar e versionar um dado sensível no meio da sua codebase, [aqui tem um vídeo](https://www.youtube.com/watch?v=BP2KQtCyzo8&t=1s) que fala sobre variáveis de ambiente. Assista e entenda como usá-las, a partir de casos de uso, libs e exemplos, tanto para Front quanto para Back-End:
+
+Além disso, separei esse [link incrível](https://nextjs.org/docs/pages/building-your-application/configuring/environment-variables#environment-variable-load-order) para falar sobre variáveis de ambiente no Next.js.
+
+## Aula 2 - Renderizando texto estruturado - Vídeo 2
+
+Nesta aula, o instrutor discutiu sobre a renderização de conteúdo utilizando a biblioteca react-datocms e o componente StructuredText. Ele explicou que o conteúdo a ser renderizado é uma estrutura de dados chamada AST, que é uma abstração do HTML. Através de uma função recursiva, é possível percorrer os elementos do AST e convertê-los em tags do React para renderização.
+
+No entanto, o instrutor mencionou que o trabalho de implementar essa função recursiva é desnecessário, pois a biblioteca react-datocms já fornece um componente chamado StructuredText, que lida com a renderização desse tipo de conteúdo de forma mais simples. Ele demonstrou como instalar a biblioteca e importar o componente no arquivo index.js.
+
+Além disso, o instrutor mostrou como utilizar o componente StructuredText, explicando que o componente espera receber uma propriedade chamada "content", que contém o conteúdo a ser renderizado. Ao passar o valor de "data(content)" para o componente, ele consegue renderizar o conteúdo esperado.
+
+Foram feitos ajustes no código para melhorar a aparência da renderização, removendo algumas propriedades CSS. Também foi mencionado que é possível personalizar as tags HTML utilizadas pelo componente StructuredText, e foi mostrado um exemplo de como alterar o estilo de um título utilizando o componente Text.
+
+Além disso, o instrutor mostrou como é possível customizar ainda mais a renderização do conteúdo utilizando a biblioteca datocms-structured-text-utils. Ele demonstrou como utilizar a função renderNodeRule para definir regras de renderização para diferentes tipos de nós do AST, e como é possível acessar informações sobre o nó atual através do parâmetro "node" da função renderNodeRule.
+
+Por fim, o instrutor destacou a flexibilidade do DatoCMS em relação à renderização de conteúdo, mencionando que é possível criar modelos de conteúdo personalizados, com diferentes tipos de tags e estilos, de acordo com as necessidades do projeto. Também foi mencionado que no próximo vídeo serão abordadas melhorias na integração com o DatoCMS.
+
+## Aula 2 - Pegando conteúdo global - Vídeo 3
+
+Nesta aula, o instrutor explicou como trabalhar com conteúdo global em um CMS, mostrando como é possível organizar e acessar esse conteúdo de forma eficiente. Ele começou explicando como puxar conteúdo do Dato e mencionou a importância de descrever o conteúdo para ser guardado no CMS. Em seguida, ele criou um menu chamado "General Content" para facilitar a visualização e organização do conteúdo. Além disso, ele trabalhou com o modelo do footer, mostrando como criar campos e categorizar o conteúdo. O instrutor também demonstrou como trazer a query para o código, tratar erros e acessar o conteúdo do CMS no componente. Por fim, ele mencionou que é possível melhorar a integração com o CMS e prometeu dar dicas de como fazer isso nos próximos passos.
+
+## Aula 2 - Ativando o sistema de Preview do NextJS - Vídeo 4
+
+Nesta aula, o instrutor abordou a importância de utilizar o mecanismo de agendamento de publicação no Dato CMS. Ele explicou como ativar o sistema de rascunho/publicado nas configurações adicionais do modelo e como agendar a publicação de um conteúdo, especificando uma data. Além disso, mostrou como diferenciar o acesso ao conteúdo normal e ao conteúdo em modo de preview no Dato CMS, utilizando endpoints diferentes.
+
+Também foi apresentado um recurso interessante do Next.js, que é a possibilidade de entrar em modo de preview, e como configurar o Next.js para entrar nesse modo através do valor de preview no método getStaticProps. O instrutor mencionou a importância de garantir que o modo de preview não seja acessível em produção e como adicionar uma senha para acessar o modo de preview, armazenando-a em uma variável de ambiente para maior segurança.
+
+Por fim, o instrutor ressaltou que os próximos passos serão aprimorar a forma de acessar informações e criar um gerenciador de dados no Dato CMS, que poderá ser útil em outros projetos.
+
+## Aula 2 - O que aprendemos nesta aula você aprendeu`:`
+
+- Como buscar os conteúdos do Dato CMS através de sua API passando uma query;
+- Como criar um CMS service que faz a busca dos conteúdos do Dato CMS;
+- Salvar tokens e dados sensíveis em variáveis de ambiente;
+- Como utilizar o componente `<StruturedText/>` da lib react-datocms para renderizar o conteúdo do Dato CMS;
+- Como criar um conteúdo de componentes globais e torná-lo disponível em diferentes páginas da aplicação;
+- Como ativar o sistema de preview do Next.js e agendamento de publicação do Dato CMS.
+
+Na próxima aula:  
+Vamos aprender como criar um provedor de dados na nossa aplicação e a disponibilizar o conteúdo do CMS a todos os componentes.
