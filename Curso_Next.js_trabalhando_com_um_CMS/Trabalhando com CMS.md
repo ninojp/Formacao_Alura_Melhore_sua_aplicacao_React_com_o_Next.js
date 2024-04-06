@@ -110,3 +110,46 @@ Por fim, o instrutor ressaltou que os próximos passos serão aprimorar a forma 
 
 Na próxima aula:  
 Vamos aprender como criar um provedor de dados na nossa aplicação e a disponibilizar o conteúdo do CMS a todos os componentes.
+
+## Aula 3 - Indo Além na integração com o CMS
+
+## Aula 3 - Criando nosso provedor de dados - Vídeo 1
+
+Nesta aula, o instrutor discute a integração do CMS (Sistema de Gerenciamento de Conteúdo) e aponta um erro de design no código. Ele menciona que o conteúdo do footer é global por natureza e deve estar presente em todas as páginas, mas a responsabilidade de passar esse conteúdo para o footer está na página do FAQ, o que gera um acoplamento entre o footer e a página do FAQ. Para resolver esse problema, o instrutor propõe desacoplar o footer e fazer com que ele tenha acesso ao conteúdo do CMS de forma global, sem precisar passar como parâmetro. Ele sugere a utilização da Context API do React para criar um provedor de dados que envolve toda a aplicação e permite que qualquer componente tenha acesso às informações do CMS. O instrutor mostra como configurar o contexto do CMS e criar o provedor de dados, além de explicar como utilizar a função useContext para acessar o conteúdo do CMS em outros componentes. Por fim, ele destaca que essa abordagem de arquitetura não é uma solução universal, mas resolve o problema de forma eficiente no contexto apresentado no vídeo.
+
+## Aula 3 - Para saber mais: Prop drilling
+
+As props são os dados que passamos (ou podemos acessar) dos componentes superiores, aqueles que estão níveis acima na nossa árvore de componentes. Se quisermos acessar esses dados em um componente que está dois ou três níveis abaixo nesta árvore de componentes, teremos que passar as props por cada um desses níveis até chegar no componente que utiliza esses dados.
+
+Isso se chama prop drilling! É o conceito de passar os dados de um componente pai, isto é, de um nível superior, para um componente filho. Só que nesse processo existem outros componentes que servem apenas como adereços, ou seja, que vão receber esses dados mas não necessariamente irão usá-los.
+
+Se deseja entender melhor sobre prop drillings, o Felipe Nascimento escreveu um artigo incrível explicando o que são e como lidar com elas dentro de uma aplicação React, e você pode conferir acessando [este link](https://www.alura.com.br/artigos/prop-drilling-no-react-js).
+
+## Aula 3 - Navegando em objetos com strings - Vídeo 2
+
+[Link](https://lodash.com/) da biblioteca(library Lodash) usada na aula.
+
+Nesta aula, o instrutor discutiu a importância de evitar que o código precise saber qual é o objeto a ser acessado. Ele apresentou a lib Lodash e a função "get", que permite navegar em um objeto ou array usando uma estrutura de string. Essa função traz flexibilidade para acessar o objeto, pois é possível fazer consultas no Dato e obter o conteúdo desejado passando apenas uma string. O instrutor também mostrou como importar o "get" do Lodash e como utilizá-lo para acessar o conteúdo do CMS. Além disso, abordou a importância de tratar erros e evitar que o projeto "build" sem ter algum conteúdo, o que pode causar problemas em produção. No final, ele mencionou que no próximo vídeo serão abordados outros tópicos relacionados ao CMS e às outras páginas do projeto.
+
+## Aula 3 - Criando nosso provedor de dados - Vídeo 3
+
+Nesta aula, o professor discutiu a implementação de um CMS (Content Management System) em um projeto, mostrando como usar um HOC (High Order Component) para garantir que todas as páginas tenham suporte ao CMS. Ele explicou como criar o HOC chamado "pageHOC.js" e como aplicá-lo em diferentes páginas do projeto, como a HomeScreen e a FAQAllQuestionsScreen. Além disso, o professor mostrou como configurar o getStaticProps para fazer a chamada ao cmsService e retornar o cmsContent, ressaltando a importância de habilitar o modo de preview do Next.js. Ao final, ele destacou que essa estrutura do HOC e do cmsService pode ser aplicada em outras páginas do projeto também.
+
+## Aula 3 - Context
+
+Como vimos em aula, o <`Footer/>` é um componente que aparece em todas as páginas e possui um conteúdo que é global. Porém, a responsabilidade de passar esse conteúdo global para o Footer era da página de FAQ, criando um acoplamento de componentes. Para lidar com este problema criamos um provider, para disponibilizar esse conteúdo global, usando a Context do React.
+
+Sobre o Context, assinale a alternativa correta:
+
+- O Context é indicado para compartilhar dados que podem ser considerados “globais” para a árvore de componentes do React.
+
+  - Alternativa correta! O Context disponibiliza uma forma de passar dados entre a árvore de componentes sem precisar passar props manualmente em cada nível. Por exemplo, podemos passar um usuário autenticado ou um idioma preferido como props a outros componentes.
+
+## Aula 3 - O que aprendemos nesta aula você aprendeu`:`
+
+- Como criar um cmsProvider para permitir que todos os componentes tenham acesso ao CMS Content através de uma gestão global de conteúdo evitando assim o prop drilling;
+- Como utilizar a função get do lodash para navegar em objetos utilizando strings e acessando os itens de uma forma mais simplificada;
+- Como abstrair as camadas do CMS utilizando uma função que serve como atalho para gerenciar os providers que os componentes precisam ter;
+
+Na próxima aula:  
+Vamos aprender como classificar os dados dentro do CMS e como fazer a migração para uma integração!
