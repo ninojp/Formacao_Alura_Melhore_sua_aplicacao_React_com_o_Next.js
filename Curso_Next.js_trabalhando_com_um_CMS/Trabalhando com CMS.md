@@ -153,3 +153,7 @@ Sobre o Context, assinale a alternativa correta:
 
 Na próxima aula:  
 Vamos aprender como classificar os dados dentro do CMS e como fazer a migração para uma integração!
+
+## Aula 4 - Automatizando suas páginas
+
+## Aula 4 - Como classificar dados dentro do CMS - Vídeo 1
