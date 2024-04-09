@@ -157,3 +157,27 @@ Vamos aprender como classificar os dados dentro do CMS e como fazer a migração
 ## Aula 4 - Automatizando suas páginas
 
 ## Aula 4 - Como classificar dados dentro do CMS - Vídeo 1
+
+Nesta aula, o instrutor discute a importância da estruturação de páginas em um projeto utilizando o DatoCMS. Ele destaca a criação e associação de componentes às páginas, bem como o preenchimento do conteúdo desses componentes no DatoCMS. Além disso, ele ressalta a importância de modularizar e categorizar o conteúdo das páginas para facilitar o gerenciamento. O instrutor também mostra como criar um modelo para as páginas, definindo os componentes que elas podem ter, e como associar esse modelo à página inicial. Ele menciona a criação de um bloco de SEO como um componente para o DatoCMS e destaca a importância de utilizar nomes simples e padronizados para facilitar o gerenciamento. Por fim, ele demonstra um exemplo de consulta à API do DatoCMS para buscar o conteúdo das páginas, utilizando os componentes cadastrados.
+
+## Aula 4 - Migrando a home para integração completa via CMS - Vídeo 2
+
+Nesta aula, o instrutor ensina como converter a busca realizada anteriormente em um componente para ser utilizado na página inicial do projeto. Ele começa copiando o código da busca e colando na página inicial. Em seguida, ele comenta todo o código da página inicial e cria um novo componente chamado "CMSSectionRender" que será responsável por renderizar as seções da página. O instrutor mostra como criar esse componente e como passar o nome da página como parâmetro para ele. Ele também utiliza a função "getCMSContent" para obter o conteúdo das seções da página a partir do CMS. Em seguida, ele utiliza o método "map" para percorrer as seções e renderizá-las. O instrutor cria um objeto chamado "cmsSections" que mapeia cada nome de componente com o seu respectivo componente. Ele utiliza esse objeto para renderizar dinamicamente os componentes das seções. O instrutor também mostra como passar as props para os componentes e como utilizar o ID das seções como chave. Por fim, ele mostra como criar os componentes "SeoBlock" e "PageHomeHeroSection" e como utilizá-los nas seções da página inicial. O instrutor destaca a flexibilidade e poder que essa abordagem proporciona, permitindo que pessoas não técnicas possam fazer alterações na página de forma fácil e segura. Ele também menciona a possibilidade de melhorar a autenticação e controle de acesso no CMS. No próximo vídeo, ele irá mostrar como fazer customizações e ocultar seções da página.
+
+## Aula 4 - Migrando a página do FAQ para integração completa via CMS - Vídeo 3
+
+Nesta aula, o professor discutiu a migração da parte do FAQ para o formato do Dato, uma plataforma de gerenciamento de conteúdo. Ele explicou a importância de verificar a presença do componente CMSSectionRender e retornar null caso contrário. Em seguida, ele detalhou o processo de migração da página interna do FAQ para o formato do Dato, utilizando o componente CMSSectionRender com a propriedade pageName='pageFaq'. Além disso, ele mostrou como criar o modelo do FAQ no Dato, importar o componente CMSSectionRender na página do FAQ e fazer a chamada para renderizar o conteúdo. O professor também explicou como adicionar um novo bloco chamado "Display de perguntas" e como listar as perguntas e categorias do FAQ, além de organizar a ordem dos blocos no Dato e passar as props para renderizar o conteúdo dinamicamente. Por fim, ele mencionou que no próximo vídeo irá resolver um problema de roteamento na página interna do FAQ.
+
+## Aula 4 - O que aprendemos nesta aula você aprendeu`:`
+
+- Como criar uma estrutura de páginas e componentes do seu frontend no Dato CMS;
+- Como enviar uma query e visualizar os conteúdos de nossas páginas na aba API Explorer;
+- Como fazer a migração para integração completa de nossa página Home para o Dato CMS;
+- Como fazer a migração para integração completa de nossa página FAQ para o Dato CMS.
+
+Na próxima aula:  
+Iremos finalizar nosso projeto, carregando os paths dos posts e aprendendo um pouco mais sobre variáveis de query.
+
+## Aula 5 - 
+
+## Aula 5 -  - Vídeo 1
