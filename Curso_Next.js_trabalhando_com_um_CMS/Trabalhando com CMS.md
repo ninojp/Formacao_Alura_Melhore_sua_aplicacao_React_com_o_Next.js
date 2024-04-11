@@ -178,6 +178,36 @@ Nesta aula, o professor discutiu a migração da parte do FAQ para o formato do 
 Na próxima aula:  
 Iremos finalizar nosso projeto, carregando os paths dos posts e aprendendo um pouco mais sobre variáveis de query.
 
-## Aula 5 - 
+## Aula 5 - Dicas Finais
 
-## Aula 5 -  - Vídeo 1
+## Aula 5 - Carregando os paths dos posts e variáveis de query - Vídeo 1
+
+DatoCMS Documentação, [Content Delivery API](https://www.datocms.com/docs/content-delivery-api).
+
+Nesta aula, o instrutor abordou a resolução de erros 404 ao acessar itens do FAQ em um projeto utilizando o DatoCMS. Ele explicou que o problema ocorre devido à falta de correspondência dos IDs dos itens no código. Para solucionar esse problema, ele mostrou como fazer uma busca no DatoCMS para obter todas as perguntas do FAQ cadastradas. Além disso, explicou como utilizar os parâmetros "first" e "skip" para limitar a quantidade de resultados retornados pela busca. Destacou a importância de consultar a documentação do DatoCMS, que fornece informações sobre paginação, filtros, ordenação e outros recursos disponíveis na API. Mencionou a possibilidade de passar variáveis na busca, em vez de valores fixos, para maior flexibilidade e segurança. Demonstrou como pré-gerar as páginas estáticas com base nos dados obtidos do DatoCMS, utilizando o método getStaticPaths do Next.js. Ressaltou que o código pode ser aprimorado e adaptado de acordo com as necessidades do projeto. Por fim, mencionou que há um próximo vídeo sobre o conceito de "feature flag" no DatoCMS.
+
+## Aula 5 - Feature Flags via CMS - Vídeo 2
+
+Nesta aula, o instrutor abordou o conceito de "feature flag", que é uma técnica para controlar a visibilidade de funcionalidades em um sistema. Ele explicou como utilizar o Dato, uma ferramenta de gerenciamento de conteúdo, para controlar a visibilidade dos componentes, adicionando um campo booleano chamado "Visible" no "Common - Footer". O instrutor ressaltou a importância de definir um valor padrão para o campo "Visible" e de tomar cuidado ao alterá-lo para evitar problemas no projeto. Além disso, ele mostrou como buscar o componente "CommonFooterRecord" em diferentes telas e como utilizar a variável "isVisible" para verificar se o componente deve ser exibido ou não.
+
+O instrutor também mencionou a importância de ativar o sistema de rascunho e publicação no Dato, explicando como agendar a publicação de uma página. Ele destacou a necessidade de utilizar o parâmetro "Next.js Revalidate" para gerar as páginas estáticas de forma incremental e garantir que o conteúdo seja atualizado de acordo com as alterações feitas no Dato.
+
+Por fim, o instrutor mencionou a existência de ferramentas específicas para gerenciar "feature flags", como o Launch Darkly, e sugeriu a possibilidade de adaptar a estrutura de conteúdo global do Dato para esse fim. Ele ressaltou que trabalhar com "feature flags" pode ser complexo, mas acredita que as técnicas apresentadas são adequadas para lidar com esse tipo de cenário.
+
+## Aula 5 - O que aprendemos nesta aula você aprendeu`:`
+
+- Como carregar os posts da página FAQ;
+- Como utilizar variáveis de query e usar isso no seu código;
+- Como usar o conceito de Feature Flags para exibir ou ocultar algum conteúdo de suas páginas.
+
+## Aula 5 - Conclusão - Vídeo 3
+
+Nesta aula, o instrutor parabeniza os espectadores por terem acompanhado o curso de Next.js com DatoCMS. Ele destaca que durante o curso, foram abordados todos os passos necessários para construir uma arquitetura completa, partindo desde o início, em que havia apenas um template fornecido pelo instrutor. Agora, com base na query do GraphQL, é possível montar uma página de forma personalizada.
+
+O instrutor ressalta que essa abordagem abre diversas possibilidades, como a utilização da própria query do GraphQL para fazer buscas mais específicas, a otimização do código e a adaptação do tema de acordo com o conteúdo fornecido pelo DatoCMS. Ele menciona que o curso abordou a parte das queries, a implementação do SectionRender, o uso do HOC da página e do wrapper.
+
+Além disso, o instrutor menciona que foram apresentadas algumas limitações claras, como os modelos de página, modelos de conteúdo global e modelos de conteúdo. Com base nesses modelos, é possível definir os componentes que serão utilizados em cada tipo de tela. Embora isso demande um pouco mais de trabalho para manter, o instrutor considera que a abordagem foi produtiva.
+
+Durante o curso, também foi explorado o uso do API Explorer e do Prop Explorer do DatoCMS. O instrutor destaca que o Prop Explorer facilita a visualização e a montagem das queries, permitindo filtrar os resultados por ID, por exemplo. Ele enfatiza que não é necessário ser um especialista em GraphQL para aproveitar os recursos oferecidos pelo DatoCMS.
+
+Por fim, o instrutor encerra o vídeo agradecendo aos espectadores e convidando-os a explorar mais os recursos do DatoCMS. Ele menciona que na Alura há conteúdo sobre o Next.js, incluindo um curso de tour pelo Next, e que em breve serão lançados cursos mais específicos sobre a criação de projetos maiores e sobre login. Ele agradece pelo feedback e se despede, convidando os espectadores a acompanharem seu canal no YouTube, o canal DevSoutinho.

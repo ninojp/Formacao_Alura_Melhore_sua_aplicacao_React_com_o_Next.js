@@ -8,7 +8,12 @@ const globalQuery = `
 `;
 const BASE_ENDPOINT = 'https://graphql.datocms.com/';
 const PREVIEW_POINT = 'https://graphql.datocms.com/preview';
-export async function cmsService({ query, preview }) {
+export async function cmsService({ 
+    query,
+    variables,
+    preview
+})
+     {
     const ENDPOINT = preview ? PREVIEW_POINT : BASE_ENDPOINT;
     try {
         // O Endereço EndPoint foi pego de: https://www.datocms.com/docs/content-delivery-api/api-endpoints
@@ -19,12 +24,13 @@ export async function cmsService({ query, preview }) {
                 'Authorization': 'Bearer ' + datoCMSToken
             },
             body: JSON.stringify({
-                query
+                query,
+                variables
             })
         })
             .then(async (respostaDoServer) => {
                 const resBody = await respostaDoServer.json();
-                console.log('resBody: ', resBody)
+                // console.log('resBody: ', resBody)
                 if(!resBody.errors) return resBody;
                 throw new Error(JSON.stringify(resBody))
             })

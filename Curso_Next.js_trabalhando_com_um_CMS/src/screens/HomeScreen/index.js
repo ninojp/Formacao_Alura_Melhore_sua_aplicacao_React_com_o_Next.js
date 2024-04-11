@@ -26,6 +26,7 @@ export async function getStaticProps({ preview }) {
                     }
                     ... on CommonFooterRecord{
                         id
+                        visible
                     }
                     }
                 }
@@ -37,7 +38,8 @@ export async function getStaticProps({ preview }) {
     return {
         props: {
             cmsContent
-        }
+        },
+        revalidate: 60 // In Seconds
     }
 }
 function HomeScreen() {
