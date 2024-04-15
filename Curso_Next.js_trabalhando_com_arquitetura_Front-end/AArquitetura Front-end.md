@@ -36,7 +36,6 @@ Para saber mais sobre a ideia de estender o microsserviço para o desenvolviment
 
 Comando para adicionar o arquivo .gitignore
 > npx gitignore node
-
 > O [EditorConfig](https://editorconfig.org/) é uma extenção do VSCode para gerenciamento de padrões de indentação de codigo.
 
 Claro! Nesta aula, o instrutor abordou a configuração inicial do mono-repo, mostrando como criar a estrutura de pastas para o projeto, instalar as dependências do Next.js, React e React DOM, criar um arquivo index.tsx na pasta pages do Next.js, inicializar um repositório Git, criar um arquivo .gitignore, gerar um arquivo .editorconfig para padronizar as configurações de indentação e inserção de nova linha, e rodar o projeto utilizando o comando yarn dev. O instrutor também mencionou a importância de centralizar os arquivos de configuração na raiz do projeto para garantir consistência e os próximos passos que serão abordados no curso.
@@ -48,5 +47,17 @@ O que são micro Front-ends e como eles são inspirados na ideia de microsservi�
 Como organizar a arquitetura de seus projetos Front-end padronizando configurações em cima de bons padrões de programação;
 Como criar a pasta de projetos, adicionar o gitignore e configurar seu projeto utilizando o editor config.
 
-Na próxima aula:
+Na próxima aula:  
 Vamos aprender a configurar e trabalhar com workspaces, o módulo de UI e também reusar as configurações do TypeScript.
+
+## Aula 2 - Estruturando a Base do nosso Mono-Repo
+
+### Aula 2 - Yarn Workspaces e o pacote utils - Vídeo 1
+
+Nesta aula, o instrutor discutiu a importância de ter uma biblioteca comum em uma empresa, onde vários times podem usar a mesma biblioteca, mas diferentes versões dela. Ele explicou que é importante ter uma versão única da biblioteca para evitar problemas de gerenciamento e espalhar a biblioteca por vários projetos. Em seguida, mostrou como criar uma pasta de pacotes comuns dentro do projeto Next.js e como adicionar um pacote de utilitários dentro dessa pasta. Foi utilizado o Yarn Workspaces para gerenciar os pacotes e mostrado como importar o pacote de utilitários em um projeto específico. O instrutor também explicou como o Yarn Workspaces gerencia as dependências e como o arquivo yarn.lock é criado na raiz do projeto. Por fim, mostrou como adicionar scripts no arquivo package.json para facilitar a execução de comandos específicos em projetos individuais. O próximo passo será trabalhar mais com componentes.
+
+### Aula 2 - O módulo de UI e o next-transpile-modules - Vídeo 2
+
+Nesta aula, o instrutor abordou o conceito de Design System e como criar componentes utilizando o Monorepo. O Design System é uma forma de padronizar o estilo de uma aplicação por meio de um contrato de interface e códigos. Foi explicado que criar uma biblioteca interna para o Design System pode ser trabalhoso, por isso, é mais fácil começar pelo Monorepo. O Monorepo é um projeto que permite que várias partes da aplicação sejam desenvolvidas juntas, facilitando o uso e permitindo que o projeto cresça antes de tomar a decisão de quebrar alguma parte.
+
+O instrutor mostrou como criar a estrutura básica para o Design System, utilizando a biblioteca "styled-components" para estilizar os componentes e como resolver problemas de importação de módulos no Next.js. A estrutura do projeto está sendo desenvolvida de forma organizada e facilitando o desenvolvimento da aplicação.
