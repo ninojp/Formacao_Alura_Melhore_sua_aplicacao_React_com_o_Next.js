@@ -22,4 +22,31 @@ E para entender a diferença desse padrão de arquitetura com a abordagem tradic
 
 Se gostou do assunto e quer se aprofundar na arquitetura de microserviços, o Vinicius Dias fez um [curso de Microserviços: padrões de projeto.](https://cursos.alura.com.br/course/microsservicos-padroes-projeto)
 
-### Aula 1 -   - Vídeo 3
+### Aula 1 - Para saber mais: Micro Front-end
+
+A abordagem tradicional de uma aplicação Front-end é construir toda ela com uma única biblioteca ou framework como React ou Angular, por exemplo. Mas imagine que você pudesse construir aplicações que são feitas de partes de aplicações independentes que se integram. Inspirado pela arquitetura de Microsserviços surgiram os Micro Front-ends.
+
+Esse conceito permite que cada parte do seu Front-end seja construída de uma aplicação independente. Isso abre espaço para diversas possibilidades, como construir uma parte do Front-end em Svelte e outra parte em Vue.js. Em projetos que envolvam mais de um time, pode ser que um desses times tenha dificuldade com a tecnologia X ou Y. Com a possibilidade de criar aplicações independentes, cada time pode escolher com qual tecnologia trabalhar, os métodos de trabalho, testes, deploy, etc.
+
+Além disso, se alguma tecnologia ou parte da aplicação ficar obsoleta, em uma aplicação feita da forma tradicional teríamos que atualizar o código inteiro. Com micro Front-ends você pode mudar as partes da aplicação aos poucos, na medida que cada uma precisar de manutenção ou atualização, não afetando a aplicação como um todo.
+
+Para saber mais sobre a ideia de estender o microsserviço para o desenvolvimento Front-end deixo [este artigo sobre micro Front-ends](https://micro-frontends.org/) que explica com uma grande riqueza de detalhes esse conceito.
+
+### Aula 1 - Configurações iniciais do mono-repo  - Vídeo 3
+
+Comando para adicionar o arquivo .gitignore
+> npx gitignore node
+
+> O [EditorConfig](https://editorconfig.org/) é uma extenção do VSCode para gerenciamento de padrões de indentação de codigo.
+
+Claro! Nesta aula, o instrutor abordou a configuração inicial do mono-repo, mostrando como criar a estrutura de pastas para o projeto, instalar as dependências do Next.js, React e React DOM, criar um arquivo index.tsx na pasta pages do Next.js, inicializar um repositório Git, criar um arquivo .gitignore, gerar um arquivo .editorconfig para padronizar as configurações de indentação e inserção de nova linha, e rodar o projeto utilizando o comando yarn dev. O instrutor também mencionou a importância de centralizar os arquivos de configuração na raiz do projeto para garantir consistência e os próximos passos que serão abordados no curso.
+
+### Aula 1 - O que aprendemos nesta aula`:`
+
+O que são monorepos e as vantagens de utilizar um monorepo para seus projetos;
+O que são micro Front-ends e como eles são inspirados na ideia de microsserviços;
+Como organizar a arquitetura de seus projetos Front-end padronizando configurações em cima de bons padrões de programação;
+Como criar a pasta de projetos, adicionar o gitignore e configurar seu projeto utilizando o editor config.
+
+Na próxima aula:
+Vamos aprender a configurar e trabalhar com workspaces, o módulo de UI e também reusar as configurações do TypeScript.
