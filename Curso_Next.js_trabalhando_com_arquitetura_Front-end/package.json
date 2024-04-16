@@ -4,9 +4,15 @@
     "packages": [
       "packages/*",
       "projects/*",
-      "setup/*cd"
+      "setup/*"
     ]
-  }, 
+  },
+  "dependencies": {
+    "@types/styled-components": "6.1.8",
+    "@types/node": "^17.0.30",
+    "@types/react": "^18.0.8",
+    "typescript": "^4.6.4"
+  },
   "scripts": {
     "web-public": "yarn workspace @alura/web-public",
     "dev:web-public": "yarn web-public dev",

@@ -3,5 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "Edenilson João Pereira",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@alura/tsconfig-commons": "*"
+  }
 }

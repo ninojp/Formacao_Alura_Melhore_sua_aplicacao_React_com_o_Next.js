@@ -61,3 +61,43 @@ Nesta aula, o instrutor discutiu a importância de ter uma biblioteca comum em u
 Nesta aula, o instrutor abordou o conceito de Design System e como criar componentes utilizando o Monorepo. O Design System é uma forma de padronizar o estilo de uma aplicação por meio de um contrato de interface e códigos. Foi explicado que criar uma biblioteca interna para o Design System pode ser trabalhoso, por isso, é mais fácil começar pelo Monorepo. O Monorepo é um projeto que permite que várias partes da aplicação sejam desenvolvidas juntas, facilitando o uso e permitindo que o projeto cresça antes de tomar a decisão de quebrar alguma parte.
 
 O instrutor mostrou como criar a estrutura básica para o Design System, utilizando a biblioteca "styled-components" para estilizar os componentes e como resolver problemas de importação de módulos no Next.js. A estrutura do projeto está sendo desenvolvida de forma organizada e facilitando o desenvolvimento da aplicação.
+
+### Aula 2 - Reusando o tsconfig - Vídeo 3
+
+Nesta aula, o instrutor abordou a configuração do projeto com TypeScript e a reutilização de configurações comuns. O objetivo foi simplificar o setup do projeto e padronizar as configurações.
+
+Para isso, o primeiro passo foi criar uma pasta de setup na raiz do projeto. Dentro dessa pasta, foi criada a pasta "tsconfig-commons" que contém o arquivo "base.json" com todas as configurações de compilador do Next.js, como o "target", "lib", "allowJs", "skipLibCheck", entre outros. Além disso, foi definido o "exclude" para excluir a pasta "node_modules".
+
+Em seguida, foi adicionada a dependência "@alura/tsconfig-commons" no "package.json" do projeto. Essa dependência foi instalada e utilizada para estender as configurações do TypeScript.
+
+No arquivo "tsconfig.json", foi adicionada a propriedade "extends" que aponta para o arquivo "base.json" do "@alura/tsconfig-commons". Também foi definido o "include" para incluir os arquivos ".ts" e ".tsx" do projeto.
+
+O instrutor destacou que essa abordagem de reutilização de configurações é uma das vantagens de trabalhar com Monorepo. Foi possível aplicar a mesma ideia para os pacotes do projeto, como o "design-system" e o "utils". Para isso, bastou copiar as configurações do "tsconfig.json" para os respectivos pacotes e remover o "include", deixando-os apontando para o "tsconfig" base. Além disso, foi necessário declarar as dependências no "package.json" de cada pacote.
+
+Outra dica dada pelo instrutor foi mover as dependências de "@types" do "devDependencies" para o "dependencies" no "package.json" do projeto. Isso permitiu que todas as dependências de tipo fossem acessíveis para todos os módulos do projeto.
+
+Em seguida, foi feito o setup do "styled-components" para que ele funcionasse corretamente com o Next.js. Foi criado o arquivo "_app.tsx" e foi adicionada a configuração do "styled-components". Também foi necessário criar o arquivo "_document.tsx". Após isso, o comando "yarn dev:web-public" foi executado para verificar se o projeto estava funcionando corretamente.
+
+Por fim, o instrutor destacou a importância de declarar as dependências corretamente no "package.json" para evitar complicações. Também foi mencionado que é possível abstrair configurações específicas, como o "createGlobalStyle", e colocá-las no pacote do "design system" para deixar tudo mais organizado.
+
+### Aula 2 - Para saber mais: Yarn workspaces
+
+Os espaços de trabalho do Yarn visam facilitar o trabalho com mono-repos. Eles permitem que vários projetos existam juntos em um mesmo repositório e façam referência cruzada entre si. Além disso, qualquer modificação no código fonte de um será aplicada instantaneamente nos outros. Basicamente, um espaço de trabalho é um pacote local composto de suas próprias fontes e arquivos.
+
+Os espaços de trabalho possuem duas propriedades importantes. A primeira delas diz que somente as dependências de um espaço de trabalho podem ser acessadas. Isso nos permite desacoplar de forma limpa os projetos uns aos outros já que você não precisa mesclar todas as suas dependências em uma lista enorme.
+
+A segunda propriedade diz que se o gerenciador de pacotes precisar resolver algo em nosso espaço de trabalho, ele buscará preferencialmente a resolução do espaço de trabalho e não a solução remota. Ao invés de usar os pacotes remotos, os pacotes do seu projeto estarão interconectados e usarão código armazenado no seu repositório.
+
+Para saber mais, inclusive como fazer a instalação e configuração de espaços de trabalho, você pode acessar o [link da documentação do yarn workspaces](https://classic.yarnpkg.com/lang/en/docs/workspaces/), clicando aqui, e seguir os passos sugeridos!
+
+### Aula 2 - O que aprendemos nesta aula você aprendeu`:`
+
+- Como configurar workspaces utilizando o yarn workspace;
+- Como configurar scripts que rodam na raiz do projeto para evitar a navegação em cada pasta sempre que precisar rodar um comando;
+- Como configurar o módulo desing-system para armazenar os componentes e toda padronização de identidade visual do seu projeto;
+- Como trabalhar com next-transpile-modules para fazer a transpilação de nossos módulos e pacotes locais;
+- Como reusar as configurações do TypeScript criando um módulo setup com a pasta tsconfig-commons e dentro dela nossas configurações em um arquivo base.json;
+- Como adicionar as configurações recomendadas para o funcionamento correto da lib styled components;
+
+Na próxima aula  
+Vamos entender porque usar linters, como adicionar e configurar o ESLint no nosso projeto.
