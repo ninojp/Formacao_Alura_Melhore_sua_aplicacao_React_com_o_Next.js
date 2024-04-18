@@ -120,3 +120,46 @@ rettier é um formatador de código opinativo com suporte para diversas linguage
 
 [Next.js ESLint](https://nextjs.org/docs/pages/building-your-application/configuring/eslint)  
 Next.js fornece um ESLint integrado, experiência fora da caixa. Adicione next lint como um script para package.json:
+
+Para fazer as correções propostas pelo ESLint de forma automatizada, pode-se usar a flag --fix  
+> Ex: yarn lint:web-public --fix  
+> Dentro do próprio arquivo, é possível usar o "CTRL+Shift+P" para adicionarmos "eslint fix" > "all auto-fixable Problems" e ele corrige tudo para nós.
+
+Nesta aula, o instrutor abordou a integração do linter do Next.js com o ESLint e o Prettier. Ele mostrou como criar um script de lint no arquivo package.json, que utiliza o comando "yarn web-public lint". Além disso, explicou como o comando "next lint" é utilizado para rodar o linter do Next.js e como é possível personalizar essa configuração para que o ESLint monitore todos os arquivos com extensão .ts e .tsx.
+
+O instrutor também detalhou como configurar o arquivo package.json para incluir as dependências necessárias, como o "@alura/eslint-commons" e as versões do ESLint, Prettier e React. Ele criou um arquivo de setup do linter na pasta "web-public", que importa a configuração padrão do "@alura/eslint-commons/base". Explicou que essa configuração utiliza o ESLint, o Prettier e o Next.js, e que o ESLint é responsável por rodar todas as regras de linting.
+
+Além disso, o instrutor demonstrou como rodar o comando "yarn && yarn lint:web-public" para instalar as dependências e rodar o linter. Mostrou como o linter identifica erros no código e como corrigi-los utilizando o comando "yarn lint:web-public --fix". Também destacou a importância de ficar atento a possíveis problemas reportados no GitHub do ESLint.
+
+Por fim, o instrutor mostrou como a configuração do linter pode ser personalizada de acordo com as necessidades do projeto, incluindo a adição de regras específicas e a criação de um comando "lint" no package.json da raiz do projeto para rodar o linter em todos os workspaces.
+
+### Aula 3 - Para saber mais: linters
+
+Quando escrevemos código é comum cometermos erros de digitação, esquecer um ponto e vírgula ou digitar um espaço a mais. Isso faz toda diferença no momento de compilar a aplicação. Um código limpo e legível é fundamental nos projetos e precisa seguir um padrão. Isso facilita a manutenção, principalmente se você for uma pessoa desenvolvedora que trabalha em um grande time ou empresa. Para evitar que esses erros e deslizes passem despercebidos, utilizamos linters.
+
+Linters, ou lint, como também são conhecidos, são ferramentas de análise de código estática e servem para sinalizar erros de programação, bugs, erros de estilos e construções suspeitas. O termo lint, que significa “fiapo”, está relacionado aos fiapos que precisavam ser retirados das roupas para não sujar. Da mesma forma é preciso retirar os “fiapos” de nosso código para não sujá-lo.
+
+O linter é uma espécie de corretor, assim como o do teclado de seu celular, que faz uma varredura em todo seu código procurando por desconformidades como:
+
+Espaçamento incorreto;
+Falta de “;” quando necessário;
+Ultrapassagem dos limites de caracteres por linha;
+Uso de aspas simples ou duplas;
+Variáveis declaradas mas não utilizadas;
+entre outras coisas.
+
+Abaixo temos algumas das ferramentas de lint mais utilizadas
+
+[JSHint:](https://jshint.com/docs/) utilizada em JavaScript, tem função de encontrar erros;
+[ESLint:](https://eslint.org/docs/latest/use/core-concepts) também um lint de JavaScript que é usado para encontrar erros com um diferencial de ser plugável;
+[TSLint:](https://palantir.github.io/tslint/) este é usado em TypeScript e é suportado por vários editores e build systems.
+Com o uso de linters nos projetos, a equipe ganha uma padronização e qualidade de código limpo e sem maiores riscos de bugs.
+
+### Aula 3 - O que aprendemos nesta aula você aprendeu`:`
+
+- Porque é importante o uso de linter em projetos para padronização de códigos;
+- Como configurar o ESLint, Next lint e o Prettier no projeto:
+- Como configurar um comando de lint nos scripts do projeto para rodar em todos os workspaces do projeto.
+
+Na próxima aula  
+Vamos aprender sobre como podemos preparar nossa arquitetura para os testes, instalar bibliotecas de testes e também como melhorá-los com o styled components.

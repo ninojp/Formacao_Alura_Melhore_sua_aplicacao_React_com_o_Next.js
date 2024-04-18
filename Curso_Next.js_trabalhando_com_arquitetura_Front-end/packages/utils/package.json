@@ -2,9 +2,11 @@
   "name": "@alura/utils",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "Edenilson João Pereira",
   "license": "MIT",
+  "scripts": {
+    "lint": "eslint './**/*.{ts,tsx}'"
+  },
   "devDependencies": {
-    "@alura/tsconfig-commons": "*"
+    "@alura/eslint-commons": "*"
   }
 }

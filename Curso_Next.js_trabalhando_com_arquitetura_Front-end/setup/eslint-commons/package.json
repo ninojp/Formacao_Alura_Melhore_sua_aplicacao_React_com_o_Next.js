@@ -1,11 +1,14 @@
 {
   "name": "@alura/eslint-commons",
-  "version": "1.0.0",
+  "version": "0.0.0",
+  "private": true,
   "main": "index.js",
-  "license": "MIT",
   "files": [
     "base.js"
   ],
+  "scripts": {
+    "lint": "echo 'Not implemented'"
+  },
   "dependencies": {
     "eslint-config-next": "12.1.5",
     "eslint-config-prettier": "8.5.0",
