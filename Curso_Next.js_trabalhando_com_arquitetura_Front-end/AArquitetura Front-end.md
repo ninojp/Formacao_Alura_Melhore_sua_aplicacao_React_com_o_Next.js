@@ -101,3 +101,22 @@ Para saber mais, inclusive como fazer a instalação e configuração de espaço
 
 Na próxima aula  
 Vamos entender porque usar linters, como adicionar e configurar o ESLint no nosso projeto.
+
+## Aula 3 - Configurações de Linter compartilhadas
+
+### Aula 3 - Linters e por que usar? - Vídeo 1
+
+[Prittier](https://prettier.io/)
+
+Claro! Nesta aula, o professor fala sobre a importância da qualidade do código e a padronização na programação. Ele compara a programação com idiomas e menciona que é comum trazermos "sotaques" de uma linguagem para outra, o que pode prejudicar a organização do projeto. Para resolver esse problema, ele introduz o conceito de "linter", que é uma ferramenta de análise de código estática usada para identificar erros, bugs, erros estilísticos e construções suspeitas. O professor explica que o linter pode ser configurado de acordo com a linguagem utilizada, como o ESLint para JavaScript. Ele também menciona o Prettier como uma opção de configuração pré-preparada. Além disso, destaca a importância de automatizar essas configurações e mantê-las na pasta de setup para facilitar o uso por qualquer pessoa que entre no time.
+
+### Aula 3 - Adicionando e configurando o ESLint no nosso projeto - Vídeo 2
+
+[ESLint](https://eslint.org/)  
+Encontrar e consertar problemas em seu JavaScript código. ESLint analisa estaticamente seu código para encontrar problemas rapidamente. Ele está integrado na maioria dos editores de texto
+
+[Prettier](https://prettier.io/)
+rettier é um formatador de código opinativo com suporte para diversas linguagens. Ele remove todo o estilo original * e garante que todo o código gerado esteja em conformidade com um estilo consistente.
+
+[Next.js ESLint](https://nextjs.org/docs/pages/building-your-application/configuring/eslint)  
+Next.js fornece um ESLint integrado, experiência fora da caixa. Adicione next lint como um script para package.json:
