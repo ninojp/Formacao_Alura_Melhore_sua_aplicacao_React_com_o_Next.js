@@ -163,3 +163,53 @@ Com o uso de linters nos projetos, a equipe ganha uma padronização e qualidade
 
 Na próxima aula  
 Vamos aprender sobre como podemos preparar nossa arquitetura para os testes, instalar bibliotecas de testes e também como melhorá-los com o styled components.
+
+## Aula 4 - Configurações de teste Compartilhadas
+
+### Aula 4 - Reusando nosso setup de testes com o Jest - Vídeo 1
+
+[Jest](https://jestjs.io/pt-BR/) é um poderoso Framework de Testes em JavaScript com um foco na simplicidade.
+
+Nesta aula, o instrutor abordou a configuração dos testes utilizando a ferramenta Jest, que é amplamente utilizada pela comunidade JavaScript para essa finalidade. O primeiro passo foi criar o comando de teste no arquivo package.json do projeto, utilizando o script "test" e configurando-o para rodar o Jest. Além disso, foi necessário adicionar a dependência "@alura/test-commons" no arquivo package.json.
+
+Em seguida, foi criado um arquivo "sum.test.ts" para realizar o teste da função de soma. O teste foi estruturado utilizando o método "describe" para descrever o cenário de teste e o método "it" para especificar o comportamento esperado da função. No exemplo dado, foi esperado que a função "sum" recebesse os números 1 e 1 e retornasse 2.
+
+Para que o código funcionasse corretamente, foi necessário adicionar as definições de tipo do Jest, utilizando a dependência "@types/jest". Também foi necessário criar a pasta "test-commons" e o arquivo "base.ts" dentro dela, que exporta uma configuração que será montada.
+
+Após a instalação das dependências e a correção de alguns erros apontados pelo ESLint, foi necessário adicionar o plugin "eslint-plugin-jest" no arquivo package.json do "eslint-commons" para que o ESLint reconhecesse o Jest.
+
+Em seguida, foi necessário configurar o arquivo "base.ts" do "test-commons" para especificar o ambiente de teste, a forma de transformação do código e outras configurações. Também foi necessário criar o arquivo ".babelrc" para descrever como o Jest lidaria com o projeto.
+
+Após todas essas configurações, foi possível rodar os testes utilizando o comando "yarn test:utils". E é importante ressaltar que existem outros recursos e funcionalidades do Jest que podem ser explorados e que serão abordados em vídeos futuros.
+
+### Aula 4 - Para saber mais: Babel
+
+Se você deseja saber mais sobre como o Babel e o Webpack rodam no JavaScript, separei estes dois vídeos que vão te ajudar a entender todo esse processo que acontece sem vermos.
+
+[Você ENTENDE REALMENTE o Babel e Webpack que roda em seus Projetos JavaScript?](https://www.youtube.com/watch?v=LMCtGvLJT6c)
+
+[Como fazer o React e aprender a ideia do Virtual DOM na prática | Como implementar o ReactJS](https://www.youtube.com/watch?v=5MzOCxSWrrc&t=1s)
+
+### Aula 4 - Adicionando React Testing Library ao nosso projeto - Vídeo 2
+
+Nesta aula, o instrutor mostrou como configurar os testes de unidade e função para o design-system usando o Jest e a biblioteca Testing Library. O objetivo foi testar a renderização de um componente chamado `<Text />` que renderiza uma tag `<h1>`.
+
+Primeiro, foi criada uma pasta chamada "index.test.tsx" dentro da pasta do design-system. Em seguida, foi feito o import do componente `<Text />` e foi criado um bloco de teste usando a função describe(). Dentro desse bloco de teste, foi criado um teste usando a função it() para verificar se o componente renderiza corretamente a tag `<h1>`.
+
+Para realizar o teste, foi utilizada a biblioteca Testing Library, que possui um método chamado render() para renderizar o componente. O instrutor utilizou o método render() para renderizar o componente `<Text tag="h1">`Sample Text`</Text>`. Em seguida, ele obteve o resultado do render usando a desestruturação e armazenou em uma variável chamada container.
+
+Para verificar se o componente foi renderizado corretamente, o instrutor utilizou a função toMatchSnapshot(), que tira uma foto do componente e compara com um snapshot anterior. Caso haja alguma alteração no componente, o teste irá falhar e será necessário atualizar o snapshot.
+
+Em seguida, o instrutor mostrou como configurar o arquivo "jest.config.js" e importar o suporte da biblioteca de teste para o design-system. Foi criado um novo arquivo chamado "react-testing-library.tsx" dentro da pasta "test-commons" para configurar o setup mínimo recomendado pela Testing Library.
+
+No arquivo "react-testing-library.tsx", foi feito o import da função render() da biblioteca Testing Library e foi criada uma função chamada customRender() para personalizar o render. Essa função foi exportada e utilizada no arquivo de teste do design-system para renderizar o componente.
+
+O instrutor também mostrou como adicionar o comando de teste no arquivo "package.json" e como executar o teste do design-system no terminal usando o comando "yarn test:design-system".
+
+O teste foi executado com sucesso e o instrutor explicou que o snapshot é uma foto do componente que permite verificar se houve alguma alteração. Caso haja alguma alteração, é possível atualizar o snapshot para ter a versão mais recente.
+
+O instrutor mencionou que esse tipo de teste é útil para testar a estrutura do componente e que também é possível testar hooks usando a função renderHook() da Testing Library.
+
+No próximo vídeo, o instrutor irá mostrar como integrar o código com a parte de CSS para finalizar o teste do design-system.
+
+### Aula 4 - Melhorando nossos testes com Styled Components - Vídeo 3
