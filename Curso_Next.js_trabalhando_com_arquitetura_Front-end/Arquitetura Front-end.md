@@ -213,3 +213,60 @@ O instrutor mencionou que esse tipo de teste é útil para testar a estrutura do
 No próximo vídeo, o instrutor irá mostrar como integrar o código com a parte de CSS para finalizar o teste do design-system.
 
 ### Aula 4 - Melhorando nossos testes com Styled Components - Vídeo 3
+
+Nesta aula, o instrutor abordou a melhoria do setup dos testes, com o objetivo de documentar o CSS utilizado em cada componente. Foi utilizado a biblioteca "Jest-Styled-Components" para incluir o código CSS no snapshot de saída dos testes. O instrutor também demonstrou como separar os componentes em pastas para uma melhor organização do projeto e como alterar o "font-family" para "sans-serif" em todo o projeto, tanto no código quanto no teste. Além disso, foi mencionada a importância de configurar os testes para diferentes providers, como tema e tradução, e foi mostrado um exemplo de como criar um wrapper personalizado para os testes, utilizando a função "customRender". Por fim, o instrutor destacou a importância das dicas apresentadas e sugeriu como próximo passo a criação de um "run test" para executar todos os testes do projeto.
+
+### Aula 4 - Para saber mais: renderHook
+
+Muitas das vezes é melhor evitar níveis de abstrações muito complexos nos nossos códigos, e com os testes não é diferente. É melhor escrever um teste que seja legível mas ainda assim robusto, e é pra isso que existe o renderHook.
+
+O renderHook é um hook customizado da biblioteca [React Testing Library](https://testing-library.com/) que facilita a escrita de testes. Se quiser saber mais sobre o renderHook recomendo você consultar a [documentação oficial acessando este link](https://testing-library.com/docs/react-testing-library/api/#renderhook).
+
+### Aula 4 - O que aprendemos nesta aula você aprendeu`:`
+
+- Como configurar o setup de testes com o Jest;
+- Como usar o react-testing-library para melhorar a estrutura de teste de seus componentes;
+- Como usar o Jest-Styled-Components para melhorar a legibilidade dos seus testes.
+
+Na próxima aula  
+Vamos aprender como lidar com dependências externas e outras configurações importantes para trabalhar em equipe no nosso mono-repo.
+
+## Aula 5 - Configurações no GitHub
+
+### Aula 5 - Dicas para lidar com dependencias externas - Vídeo 1
+
+Nesta aula, o instrutor aborda a importância de avaliar as dependências presentes no arquivo "package.json" de um projeto, verificando se alguma delas oferece risco de segurança. Ele também menciona o recurso "Code security and analysis" do GitHub, que permite visualizar um gráfico de dependências e receber alertas sobre atualizações, incluindo atualizações de segurança. Ao habilitar essas opções, o GitHub envia notificações sobre bibliotecas desatualizadas e fornece informações sobre como atualizá-las. O instrutor sugere revisar os requests mensalmente para configurar e trabalhar com o recurso de forma eficiente, visando garantir a segurança, estabilidade e facilitar o gerenciamento das bibliotecas utilizadas no projeto.
+
+### Aula 5 - Configurações importantes para trabalhar em equipe no nosso repositório e próximos passos - Vídeo 2
+
+Claro! Nesta aula, o instrutor abordou a importância de proteger a branch principal do projeto no GitHub. Ele explicou que, para fazer isso, é necessário acessar as configurações do repositório no GitHub e selecionar a opção "Branches". Em seguida, é possível adicionar uma regra para proteger a branch principal.
+
+O instrutor mencionou duas opções que podem ser selecionadas para proteger a branch: "Require a pull request before merging" e "Require approvals". A primeira opção exige que um pull request seja feito antes de mesclar as alterações na branch principal, enquanto a segunda opção requer aprovações de outras pessoas antes de mesclar as alterações.
+
+Além disso, o instrutor mencionou a funcionalidade de "Code Owners", que permite dividir algumas pastas para que determinadas equipes sejam responsáveis por elas. Ele sugeriu que essa funcionalidade pode ser utilizada para aprimorar o processo de Monorepo.
+
+O instrutor também destacou que é possível tornar obrigatória a revisão do código pelos "code owners" antes de mesclar as alterações. Isso pode ser útil caso o projeto tenha integrações externas, pois é possível configurá-las nessa seção.
+
+Por fim, o instrutor mencionou que é possível habilitar algumas configurações específicas para os administradores do projeto e ressaltou a importância de utilizar o GitHub como uma ferramenta para auxiliar no controle das alterações no código e na gestão das equipes responsáveis por cada parte do projeto.
+
+### Aula 5 - Para saber mais: proprietários do código
+
+O processo de revisão de código é fundamental para todo projeto, mas nem sempre fica claro quando e quem deve ser o responsável por essa tarefa, ainda mais quando você trabalha em um projeto muito grande. É por isso que existe o codeowners (proprietários do código), para definir indivíduos ou equipes que ficarão responsáveis pela revisão de código de um repositório.
+
+O codeowners é um arquivo definido pelos proprietários de código, aquelas pessoas que têm permissões de administrador de um repositório. Essa função define exatamente quais pessoas serão responsáveis por revisar o código quando uma solicitação de pull request altera um arquivo daquele proprietário. Além disso, é possível adicionar mais uma camada de segurança sobre seu código com a opção de proteção de branch para garantir que as pessoas certas tenham a chance de revisar.
+
+Se quiser saber mais sobre essa feature do Github você pode consultar a [documentação neste link](https://docs.github.com/pt/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners), e também se quiser entender um pouco mais sobre o codeowners é só [acessar este artigo](https://github.blog/2017-07-06-introducing-code-owners/).
+
+### Aula 5 - Para saber mais: Github Actions
+
+Se quiser entender na prática como trabalhar com o Github Actions e explorar conceitos de CI/CD Continuous Integration e Continuous Delivery, vou deixar [aqui um vídeo](https://www.youtube.com/watch?v=IKjcdYQvcDo) do canal DevSoutinho que te explica tudo sobre este assunto!
+
+### Aula 5 - O que aprendemos nesta aula você aprendeu`:`
+
+- Como lidar com dependências externas utilizando recursos do GitHub;
+- Como ativar o recursos de segurança como “dependabot” para monitorar as alterações em seus projetos;
+- Como proteger a branch principal do seu projeto usando recursos do github.
+
+### Aula 5 - Conclusão - Vídeo 3
+
+Nesta aula, o instrutor parabeniza os espectadores por terem concluído a sequência de vídeos, que teve como objetivo facilitar a adaptação e migração de conceitos. Foram abordados temas como workspaces, linter, adição de testes, importância das pastas de setup e projetos, code owners, organização de projetos e proteção de branches. O instrutor destaca a importância de organizar o caos no desenvolvimento de software e menciona que o próximo conteúdo será sobre o GitHub, uma ferramenta útil para explorar, com recursos como actions, merge com requests e a funcionalidade de projetos. Ele acredita que o conhecimento do GitHub fará diferença na vida dos desenvolvedores e ajudará a resolver problemas em ferramentas já utilizadas pelas empresas. Por fim, ele pede aos espectadores que deixem suas avaliações do curso e agradece pelo apoio.
